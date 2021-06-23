@@ -16,7 +16,7 @@ const HeaderComponent = styled.header`
 
 const Header = () => {
     return (
-        <HeaderComponent>
+        <HeaderComponent className="header">
             <Logo />
             <Navbar/>
         </HeaderComponent>

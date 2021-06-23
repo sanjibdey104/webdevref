@@ -99,33 +99,33 @@ const PostBody = styled.div`
 
 const PostTemplate = ({postData}) => {
 
-    const post = postData[0];
-    const {title, date, topic, content} = post;
-    const html = unified().use(parse).use(remark2react, {
-        remarkReactComponents: {
-            a: CustomLink,
-        },
-    }).processSync(content).result;
+  const post = postData[0];
+  const {title, date, topic, content} = post;
+  const html = unified().use(parse).use(remark2react, {
+      remarkReactComponents: {
+          a: CustomLink,
+      },
+  }).processSync(content).result;
 
-    return (
-        <>
-        <SinglePostSection>
-            <PostHeader>
-                <h2 className="title">{title}</h2>
-                <p className="date">{date}</p>
-                <p className="topic">#{topic}</p>
-            </PostHeader>
+  return (
+    <>
+    <SinglePostSection>
+      <PostHeader>
+        <h2 className="title">{title}</h2>
+        <p className="date">{date}</p>
+        <p className="topic">#{topic}</p>
+      </PostHeader>
 
-            <PostBody>
-            {html}
-            </PostBody>
-        </SinglePostSection>
-        
-        <Link href="/posts" className="all-posts-link">
-        Go to all posts...
-        </Link>
-        </>        
-    );
+      <PostBody>
+      {html}
+      </PostBody>
+    </SinglePostSection>
+    
+    <Link href="/posts">
+      <a className="all-posts-link">Go to all posts...</a>
+    </Link>
+    </>        
+  );
 }
 
 export const getStaticProps = async({params}) => {

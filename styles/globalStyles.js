@@ -20,29 +20,24 @@ body {
     color: ${({theme}) => theme.textColor};
     line-height: 1.4;
     --logo-color: #f7e019;
+}
 
-    .container {
-        width: 75%;
-        min-height: 100vh;
+.container {
+    width: 75%;
+    min-height: 100vh;
+    margin: 0 auto;
+    position: relative;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    @media (max-width: 600px) {
+        width: 90%;
         margin: 0 auto;
-        position: relative;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-
-        @media (max-width: 600px) {
-            width: 90%;
-            margin: 0 auto;
-        }
     }
+
 }
-
-
-body, input, a, button, textarea {
-    font-family: inherit;
-}
-
 
 ul {
     list-style: none;
@@ -68,7 +63,7 @@ button {
     margin: auto;
     border-radius: 0.5rem;
     text-align: center;
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
 
     background-color: inherit;
     color: inherit;

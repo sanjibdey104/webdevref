@@ -36,12 +36,12 @@ const Description = styled.section`
   }
 
   h2 {
-      font-weight: 500;
+    font-weight: 500;
   }
 
   span {
-      font-size: 2rem;
-      font-weight: 700;
+    font-size: 2rem;
+    font-weight: 700;
   }
 `
 
@@ -51,14 +51,14 @@ const Home = () => {
     <>
     <BlogIntro>
       <Description>
-        <h2>Welcome to <span>Web Dev Ref</span> </h2>
+        <h2>Welcome to <span>Web Dev Ref</span></h2>
         <h2>A resource reference blog for</h2>
         <h2>web developers</h2>
       </Description>       
     </BlogIntro>
 
-    <Link href="/posts" className="all-posts-link">
-      Go to all posts...
+    <Link href="/posts">
+      <a className="all-posts-link">Go to all posts...</a>
     </Link>
     </>
   );

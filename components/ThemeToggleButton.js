@@ -11,7 +11,11 @@ const ThemeSwitch = styled.button`
     svg {
         width: 1.5rem;
         height: 1.5rem;
-        color: ${({ theme }) => theme.mobileNavLink};
+        color: ${({ theme }) => theme.textColor};
+
+        @media (max-width: 600px) {
+            color: ${({theme}) => theme.mobileNavLink}
+        }
     }
 `
 
