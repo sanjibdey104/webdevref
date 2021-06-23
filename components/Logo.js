@@ -21,9 +21,9 @@ const StyledLogo = styled.div`
 const Logo = () => {
     return (
         <StyledLogo>
-            <span className="span-one">&lt; Web</span>
-            <span className="span-two">Dev</span>
-            <span className="span-three">Ref /&gt;</span>
+            <span>&lt; Web</span>
+            <span>Dev</span>
+            <span>Ref /&gt;</span>
         </StyledLogo>
     );
 }

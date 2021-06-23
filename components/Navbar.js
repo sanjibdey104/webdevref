@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import {ThemeToggleButton} from './ThemeToggleButton';
 
 const Nav = styled.nav`
     display: flex;
@@ -99,17 +100,10 @@ const Navbar = () => {
     return (
         <Nav>
             <NavLinks>
-                <Link href="/">
-                    <li><a>Home</a></li>
-                </Link>
-
-                <Link href="/projects">
-                    <li><a>Projects</a></li>
-                </Link>
-
-                <Link href="/contact">
-                    <li><a>Contact</a></li>
-                </Link>
+                <Link href="/"><li><a>Home</a></li></Link>
+                <Link href="/projects"><li><a>Projects</a></li></Link>
+                <Link href="/contact"><li><a>Contact</a></li></Link>
+                <li><ThemeToggleButton /></li>
             </NavLinks>
         </Nav>
     )
