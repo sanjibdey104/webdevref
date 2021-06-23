@@ -1,22 +1,35 @@
-import React from 'react';
-import styled from 'styled-components';
-
+import React, {useState} from 'react';
 import CustomHead from './CustomHead';
 import Header from './Header';
-import Contact from './Contact';
 import Footer from './Footer';
+import { NavbarDisplayContext } from '../context/NavbarDisplayContext';
 
 const Layout = ({ children }) => {
 
-    return (
+    const [navDisplay, setNavDisplay] = useState(false);
 
+    const toggleNavDisplay = () => {
+        setNavDisplay(!navDisplay);
+    }
+
+    const closeNavbar = () => {
+        if(navDisplay)
+        setNavDisplay(false);
+    }
+
+
+    return (
         <>
-            <CustomHead />
-            <div className="container">
+        <CustomHead />
+        <NavbarDisplayContext.Provider
+        value={{navDisplay: navDisplay, toggleNavDisplay: toggleNavDisplay}}
+        >
+            <div className="container" onClick={() => closeNavbar()}>
                 <Header/>
                     {children}
                 <Footer/>
             </div>
+        </NavbarDisplayContext.Provider>
         </> 
     );
 }
