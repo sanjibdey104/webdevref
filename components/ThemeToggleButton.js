@@ -1,6 +1,6 @@
 import React, { useContext } from 'react'
-import { FiSun, FiMoon } from "react-icons/fi"
 import styled from 'styled-components'
+import { FiSun, FiMoon } from "react-icons/fi"
 import { ThemeContext } from '../context/ThemeContext'
 
 const ThemeSwitch = styled.button`

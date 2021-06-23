@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
 import Logo from './Logo';
@@ -18,9 +17,7 @@ const HeaderComponent = styled.header`
 const Header = () => {
     return (
         <HeaderComponent>
-            <Link href="/">
-                <Logo/>
-            </Link>
+            <Logo />
             <Navbar/>
         </HeaderComponent>
     );

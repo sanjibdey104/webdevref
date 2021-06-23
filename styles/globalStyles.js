@@ -20,6 +20,18 @@ body {
     color: ${({theme}) => theme.textColor};
     line-height: 1.4;
     --logo-color: #f7e019;
+
+    .container {
+        width: 75%;
+        min-height: 100vh;
+        margin: 0 auto;
+        position: relative;
+
+        @media (max-width: 600px) {
+            width: 90%;
+            margin: 0 auto;
+        }
+    }
 }
 
 

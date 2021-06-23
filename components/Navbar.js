@@ -36,61 +36,26 @@ const NavLinks = styled.ul`
     justify-content: space-around;
     gap: 2rem;
 
-    a {
-        cursor: pointer;
-        padding: 0.5rem;
+    li {
+        font-size: 1rem;
         position: relative;
-
-        &:hover::before, &:hover::after {
-            transform: scale(1);
-        }
+        font-weight: 500;
+        cursor: pointer;
 
         &::before {
-            content: "";
-            width: 0.75rem;
-            height: 0.75rem;
-            position: absolute;
-            left: 0;
-            top: 0;
-            display: block;
-            border-left: 2px solid ${({theme}) => theme.textColor};
-            border-top: 2px solid ${({theme}) => theme.textColor};
+            content: "/";
+            display: inline-block;
+
+            width: 5px;
+            color: ${({theme}) => theme.accentColor};
+
+            margin-right: 0.2rem;
             transform: scale(0);
             transition: transform 150ms ease-in-out;
         }
-
-        &::after {
-            content: "";
-            width: 0.75rem;
-            height: 0.75rem;
-            position: absolute;
-            right: 0;
-            bottom: 0;
-            display: block;
-            border-right: 2px solid ${({theme}) => theme.textColor};
-            border-bottom: 2px solid ${({theme}) => theme.textColor};
-            transform: scale(0);
-            transition: transform 150ms ease-in-out;
-        }
-    }
-
-    @media (max-width: 768px) {
-        gap: 1.2rem;
-
-        a {
-            padding: 0;
-
-            &::before {
-                display: none;
-            }
-
-            &::after {
-                display: none;
-            }
-        }
-
-        li {
-            font-size: 1.2rem;
+    
+        &:hover::before {
+            transform: scale(1.5);
         }
     }
 `
@@ -100,10 +65,11 @@ const Navbar = () => {
     return (
         <Nav>
             <NavLinks>
-                <Link href="/"><li><a>Home</a></li></Link>
-                <Link href="/projects"><li><a>Projects</a></li></Link>
-                <Link href="/contact"><li><a>Contact</a></li></Link>
-                <li><ThemeToggleButton /></li>
+                <Link href="/"><li><a>home</a></li></Link>
+                <Link href="/posts"><li><a>posts</a></li></Link>
+                <Link href="/topics"><li><a>topics</a></li></Link>
+                <Link href="/about"><li><a>about</a></li></Link>
+                <ThemeToggleButton />
             </NavLinks>
         </Nav>
     )
