@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 import Link from 'next/link';
 import styled from 'styled-components';
 import { getPost, getPostSlugs } from '../../lib/data';
@@ -7,6 +7,7 @@ import unified from 'unified';
 import parse from 'remark-parse';
 import remark2react from 'remark-react';
 import CustomLink from '../../components/CustomLink';
+
 
 const SinglePostSection = styled.section`
   width: 70%;
@@ -75,8 +76,12 @@ const PostBody = styled.div`
     padding: 1rem;
     border-radius: 0.5rem;
     background-color: #011627;
-    color: #03dac6;
+    background-color: ${({theme}) => theme.backgroundColor};
+    box-shadow: ${({theme})=> theme.boxShadow};
+    color: ${({theme}) => theme.accentColor};
     margin: 1rem 0;
+    font-size: 0.85rem;
+    font-weight: 500;
   }
       
   blockquote {
@@ -98,9 +103,9 @@ const PostBody = styled.div`
 `
 
 const PostTemplate = ({postData}) => {
-
   const post = postData[0];
   const {title, date, topic, content} = post;
+
   const html = unified().use(parse).use(remark2react, {
       remarkReactComponents: {
           a: CustomLink,
