@@ -76,7 +76,7 @@ const PostCardComponent = styled.li`
 
 const PostCard = ({title, slug, date, excerpt, topic}) => {
     return (
-        <Link href={`/posts/${topic}/${slug}`}>
+        <Link href={`/posts/${slug}`}>
             <PostCardComponent>
                 <div className="card-header">
                     <h3 className="title">{title}</h3>

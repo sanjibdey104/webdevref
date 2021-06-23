@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Link from 'next/link';
 import PostCard from '../components/PostCard';
 import { getPosts } from '../lib/data';
 
@@ -37,20 +36,20 @@ const AllPostsSection = styled.section`
 
 const Posts = ({ postsData }) => {
 
-    const {posts} = postsData;
+  const {posts} = postsData;
 
-    return (
-        <AllPostsSection>
-            <h2>all the posts</h2>
+  return (
+    <AllPostsSection>
+      <h2>all the posts</h2>
 
-            <ul className="post-list">
-                {posts.map(post => {
-                const { id } = post;
-                return <PostCard key={id} {...post}/>
-                })}     
-            </ul>
-        </AllPostsSection>
-    );
+      <ul className="post-list">
+          {posts.map(post => {
+          const { id } = post;
+          return <PostCard key={id} {...post}/>
+          })}     
+      </ul>
+    </AllPostsSection>
+  );
 }
 
 export const getStaticProps = async() => {
