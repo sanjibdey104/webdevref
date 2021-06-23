@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Link from 'next/link';
 
 const StyledLogo = styled.div`
     font-size: 0.9rem;
@@ -20,11 +21,13 @@ const StyledLogo = styled.div`
 
 const Logo = () => {
     return (
-        <StyledLogo>
-            <span>&lt; Web</span>
-            <span>Dev</span>
-            <span>Ref /&gt;</span>
-        </StyledLogo>
+        <Link href="/">
+            <StyledLogo>
+                <span>&lt; Web</span>
+                <span>Dev</span>
+                <span>Ref /&gt;</span>
+            </StyledLogo>
+        </Link>
     );
 }
  
