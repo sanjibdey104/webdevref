@@ -19,7 +19,7 @@ const ContactSection = styled.section`
     svg {
         width: 1.3rem;
         height: 1.3rem;
-        color: tomato;
+        color: ${({theme}) => theme.accentColor};
         transition: all 150ms ease-in-out;
     }
 

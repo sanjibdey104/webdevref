@@ -24,6 +24,9 @@ const Description = styled.section`
   width: fit-content;
   position: relative;
 
+  border-left: 3px solid ${({theme}) => theme.accentColor};
+  box-shadow: ${({theme}) => theme.boxShadow};
+
   @media (max-width: 600px) {
     padding: 1rem;
     span {

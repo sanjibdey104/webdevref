@@ -88,6 +88,6 @@ export const lightTheme = {
 export const darkTheme = {
     backgroundColor: "#121212",
     textColor: "#ffffffda",
-    accentColor: "#bb86fc",
+    accentColor: "#cf6679",
     boxShadow: "0 0 8px #000"
 }
