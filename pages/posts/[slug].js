@@ -6,6 +6,7 @@ import { getPost, getPostSlugs } from '../../lib/data';
 import unified from 'unified';
 import parse from 'remark-parse';
 import remark2react from 'remark-react';
+import CustomLink from '../../components/CustomLink';
 
 const SinglePostSection = styled.section`
   width: 70%;
@@ -100,10 +101,11 @@ const PostTemplate = ({postData}) => {
 
     const post = postData[0];
     const {title, date, topic, content} = post;
-    const html = unified()
-    .use(parse)
-    .use(remark2react)
-    .processSync(content).result;
+    const html = unified().use(parse).use(remark2react, {
+        remarkReactComponents: {
+            a: CustomLink,
+        },
+    }).processSync(content).result;
 
     return (
         <>
