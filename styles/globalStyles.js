@@ -27,6 +27,10 @@ body {
         margin: 0 auto;
         position: relative;
 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
         @media (max-width: 600px) {
             width: 90%;
             margin: 0 auto;

@@ -6,7 +6,6 @@ import styled from 'styled-components';
 const ContactSection = styled.section`
     display: grid;
     place-content: center;
-    margin-bottom: 1rem;
 
     ul {
         height: 100%;
@@ -21,10 +20,11 @@ const ContactSection = styled.section`
         width: 1.3rem;
         height: 1.3rem;
         color: tomato;
+        transition: all 150ms ease-in-out;
     }
 
     li:hover svg {
-        color: black;
+        color: ${({theme}) => theme.textColor};
     }
 
 
