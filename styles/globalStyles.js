@@ -64,7 +64,7 @@ button {
     left: 0;
     height: 4px;
     background-color: #bb86fc;
-    background: linear-gradient(right, #bb86fc, rgba(130, 255, 130, 0.753));
+    background: linear-gradient(to right, #4262ff, #01baef, #764ba2);
 }
 
 .all-posts-link, .all-topics-link {
