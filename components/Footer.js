@@ -5,7 +5,7 @@ import { SiNextDotJs } from 'react-icons/si';
 
 const FooterComponent = styled.footer`
     width: 100%;
-    font-size: 0.75rem;
+    font-size: 0.65rem;
     padding: 0.75rem 0;
 
     display: flex;
@@ -20,7 +20,7 @@ const FooterComponent = styled.footer`
 
         svg {
             display: inline;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             margin-left: 0.3rem;
             align-self: center;
         }

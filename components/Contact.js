@@ -17,8 +17,8 @@ const ContactSection = styled.section`
     }
 
     svg {
-        width: 1.3rem;
-        height: 1.3rem;
+        width: 1.2rem;
+        height: 1.2rem;
         color: ${({theme}) => theme.accentColor};
         transition: all 150ms ease-in-out;
     }
