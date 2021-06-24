@@ -4,36 +4,37 @@ import styled from 'styled-components';
 import { motion } from 'framer-motion';
 import { getFeaturedPosts } from '../lib/data';
 import PostCard from '../components/PostCard';
+import Image from 'next/image';
 
 
 const BlogIntro = styled(motion.section)`
   height: 30rem;
-  margin-bottom: 2rem;
-  
-  display: grid;
-  place-content: center;
+  margin-bottom: 5rem;
+  position: relative;
 
-  @media (max-width: 600px) {
-    height: 15rem;
-    flex-direction: column-reverse;
-    font-size: 0.8rem;
-    margin-bottom: 5rem;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+`
+
+const HeroImage = styled(motion.div)`
+  width: clamp(20rem,22vw,25rem);
 `
 
 const Description = styled.section`
   padding: 1rem;
   border-radius: 0.5rem;
-  width: fit-content;
-  position: relative;
-
+  
+  font-size: 0.9rem;
+  transform: translateY(-10%);
+  
+  background-color: ${({theme}) => theme.backgroundColor};
   border-left: 3px solid ${({theme}) => theme.accentColor};
   box-shadow: ${({theme}) => theme.boxShadow};
 
   @media (max-width: 600px) {
-    padding: 1rem;
     span {
-      font-size: 1.5rem;
       display: block;
     }
   }
@@ -43,7 +44,7 @@ const Description = styled.section`
   }
 
   span {
-    font-size: 2rem;
+    font-size: clamp(1.5rem,8vw,2rem);
     font-weight: 700;
   }
 `
@@ -85,12 +86,21 @@ const Home = ({featuredPostsData}) => {
 
   return (
     <>
-    <BlogIntro initial={{y:50}} animate={{y:0}}>
+    <BlogIntro>
+
+      <HeroImage initial={{y:-100}} animate={{y:0}}>
+        <Image 
+        src="/dizzy-education.png" 
+        width={450}
+        height={280}
+        alt="flamenco hero image" />  
+      </HeroImage>
+
       <Description>
         <h2>Welcome to <span>Web Dev Ref</span></h2>
         <h2>A resource reference blog for</h2>
         <h2>web developers</h2>
-      </Description>       
+      </Description>  
     </BlogIntro>
 
     <FeaturePostsSection>
