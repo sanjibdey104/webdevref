@@ -1,9 +1,10 @@
 import Link from 'next/link';
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
 
-const BlogIntro = styled.section`
+const BlogIntro = styled(motion.section)`
   height: 30rem;
   margin-bottom: 1rem;
   
@@ -49,7 +50,7 @@ const Home = () => {
 
   return (
     <>
-    <BlogIntro>
+    <BlogIntro initial={{y:50}} animate={{y:0}}>
       <Description>
         <h2>Welcome to <span>Web Dev Ref</span></h2>
         <h2>A resource reference blog for</h2>

@@ -1,8 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 
-const PostCardComponent = styled.li`
+const PostCardComponent = styled(motion.li)`
 
     width: clamp(22rem, 20vw, 25rem);
     height: 12rem;
@@ -77,7 +78,7 @@ const PostCardComponent = styled.li`
 const PostCard = ({title, slug, date, excerpt, topic}) => {
     return (
         <Link href={`/posts/${slug}`}>
-            <PostCardComponent>
+            <PostCardComponent initial={{y:50}} animate={{y:0}}>
                 <div className="card-header">
                     <h3 className="title">{title}</h3>
                     <p className="date">{date}</p>

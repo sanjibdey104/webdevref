@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
+import { motion } from 'framer-motion';
 
-const AboutSection = styled.section`
+const AboutSection = styled(motion.section)`
     width: 70%;
     margin: 0 auto; 
     margin-bottom: 1rem;
@@ -36,7 +37,7 @@ const AboutSection = styled.section`
 
 const About = () => {
     return (
-        <AboutSection>
+        <AboutSection initial={{y: 50}} animate={{y: 0}}>
             <h2>motivation behind the blog</h2>
 
             <div className="body">

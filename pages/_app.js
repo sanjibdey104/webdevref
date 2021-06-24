@@ -4,6 +4,7 @@ import { ThemeProvider } from 'styled-components';
 import { ThemePreference } from '../styles/themeConfig';
 import Layout from '../components/Layout';
 import { ThemeContext } from '../context/ThemeContext';
+import { AnimatePresence } from 'framer-motion';
 
 function MyApp({ Component, pageProps }) {
 
@@ -11,14 +12,16 @@ function MyApp({ Component, pageProps }) {
   let themePreference = (theme === 'dark') ? darkTheme : lightTheme;
 
   return (
-    <ThemeContext.Provider value={{theme: theme,toggleTheme: toggleTheme}}>
-    <ThemeProvider theme={themePreference} >
-    <GlobalStyles />
-      <Layout >
-        <Component {...pageProps} />
-      </Layout>
-    </ThemeProvider>
-    </ThemeContext.Provider>
+    <AnimatePresence exitBeforeEnter>
+      <ThemeContext.Provider value={{theme: theme,toggleTheme: toggleTheme}}>
+      <ThemeProvider theme={themePreference} >
+      <GlobalStyles />
+        <Layout >
+          <Component {...pageProps} />
+        </Layout>
+      </ThemeProvider>
+      </ThemeContext.Provider>
+    </AnimatePresence>
   )
 }
 

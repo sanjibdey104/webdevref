@@ -7,9 +7,10 @@ import unified from 'unified';
 import parse from 'remark-parse';
 import remark2react from 'remark-react';
 import CustomLink from '../../components/CustomLink';
+import {motion} from 'framer-motion';
 
 
-const SinglePostSection = styled.section`
+const SinglePostSection = styled(motion.section)`
   width: 70%;
   margin: 3rem auto;
 
@@ -49,26 +50,23 @@ const PostBody = styled.div`
 
   a {
     position: relative;
-    margin-bottom: 3rem;
     font-size: 1.1rem;
-
-    &::after {
-      content: "";
-      display: block;
-      position: absolute;
-      bottom: 0;
-
-      width: 100%;
-      height: 30%;
-
-      z-index: -10;
-      opacity: 0.5;
-      background-color: ${({theme}) => theme.accentColor};
-      transition: height 150ms ease-in-out;
+    display: flex;
+    align-items: center;
+    margin: 1rem 0;
+    
+    &:hover svg {
+      transform: scale(1.2);
     }
-
-    &:hover::after {
-      height: 100%;
+    
+    svg {
+      display: inline;
+      color: ${({theme}) => theme.accentColor};
+      
+      margin-right: 1rem;
+      font-size: 1.2rem;
+      transform: scale(1);
+      transition: transform 150ms ease-in-out;
     }
   }
 
@@ -114,7 +112,7 @@ const PostTemplate = ({postData}) => {
 
   return (
     <>
-    <SinglePostSection>
+    <SinglePostSection initial={{y:50}} animate={{y:0}}>
       <PostHeader>
         <h2 className="title">{title}</h2>
         <p className="date">{date}</p>
