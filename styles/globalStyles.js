@@ -58,6 +58,15 @@ button {
     background-color: inherit;
 }
 
+.scroll-tracker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background-color: #bb86fc;
+    background: linear-gradient(right, #bb86fc, rgba(130, 255, 130, 0.753));
+}
+
 .all-posts-link, .all-topics-link {
     width: 11rem;
     margin: auto;

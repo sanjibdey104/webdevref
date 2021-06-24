@@ -1,7 +1,8 @@
-import React from "react"
+import React, { useEffect } from "react"
 import Link from 'next/link';
 import styled from 'styled-components';
 import { getPost, getPostSlugs } from '../../lib/data';
+import {ScrollHandlerLogic} from '../../components/ScrollHandler';
 
 import unified from 'unified';
 import parse from 'remark-parse';
@@ -101,17 +102,29 @@ const PostBody = styled.div`
 `
 
 const PostTemplate = ({postData}) => {
+
+  const [scrollIndicatorWidth, handleScroll] = ScrollHandlerLogic();
+
+  useEffect(() => {  
+    window.addEventListener('scroll',handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+
   const post = postData[0];
   const {title, date, topic, content} = post;
 
-  const html = unified().use(parse).use(remark2react, {
+  const htmlContent = unified().use(parse).use(remark2react, {
       remarkReactComponents: {
           a: CustomLink,
       },
   }).processSync(content).result;
 
+
   return (
     <>
+    <div className="scroll-tracker" style={{width: `${scrollIndicatorWidth}%`}} />
+
     <SinglePostSection initial={{y:50}} animate={{y:0}}>
       <PostHeader>
         <h2 className="title">{title}</h2>
@@ -120,7 +133,7 @@ const PostTemplate = ({postData}) => {
       </PostHeader>
 
       <PostBody>
-      {html}
+      {htmlContent}
       </PostBody>
     </SinglePostSection>
     
