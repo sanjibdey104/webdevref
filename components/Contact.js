@@ -6,6 +6,7 @@ import styled from 'styled-components';
 const ContactSection = styled.section`
     display: grid;
     place-content: center;
+    margin-bottom: 1.2rem;
 
     ul {
         height: 100%;

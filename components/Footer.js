@@ -11,7 +11,6 @@ const FooterComponent = styled.footer`
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 1.5rem;
 
     
     p {
@@ -27,10 +26,25 @@ const FooterComponent = styled.footer`
     }
 `
 
+const Attribution = styled.section`
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 0.2rem;
+    
+    a {
+        color: ${({theme}) => theme.accentColor}
+    }
+`
+
 const Footer = () => {
     return (
         <FooterComponent>
             <Contact />
+
+            <Attribution>
+            Illustration by <a href="https://icons8.com/illustrations/author/5f32934501d0360017af905d" target="_blank" rel="noopener noreferrer">Polina Golubeva</a> from <a href="https://icons8.com/illustrations" target="_blank" rel="noopener noreferrer">Ouch!</a>
+            </Attribution>
+
             <p>&copy; 2021 WebDevRef. &nbsp; Built with <SiNextDotJs />extJS</p>
         </FooterComponent>
     );
