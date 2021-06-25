@@ -92,7 +92,7 @@ const Home = ({featuredPostsData}) => {
         <Image 
         src="/dizzy-education.png" 
         width={450}
-        height={280}
+        height={255}
         alt="flamenco hero image" />  
       </HeroImage>
 
