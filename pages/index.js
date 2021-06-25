@@ -60,7 +60,7 @@ const FeaturePostsSection = styled.section`
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .post-list {
