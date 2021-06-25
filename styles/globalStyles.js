@@ -31,6 +31,7 @@ body {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    align-items: center;
 
     @media (max-width: 600px) {
         width: 90%;

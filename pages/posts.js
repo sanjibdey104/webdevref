@@ -5,8 +5,8 @@ import { getPosts } from '../lib/data';
 
 const AllPostsSection = styled.section`
   width: 90%;
-  margin: 0 auto;
-  margin-bottom: 3rem;
+  margin: 2rem 0;
+  margin-bottom: 5rem;
 
   display: flex;
   flex-direction: column;
@@ -14,7 +14,7 @@ const AllPostsSection = styled.section`
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
   }
 
   .post-list {
