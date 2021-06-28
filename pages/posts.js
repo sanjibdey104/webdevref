@@ -34,7 +34,6 @@ const AllPostsSection = styled.section`
       font-size: 1.1rem;
       font-weight: 500;
       color: ${({theme}) => theme.textColor};
-      /* border: 1px solid ${({theme}) => theme.accentColor}; */
 
       background-color: ${({theme}) => theme.backgroundColor};
       box-shadow: ${({theme}) => theme.boxShadow};
