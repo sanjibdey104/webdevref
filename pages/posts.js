@@ -37,6 +37,10 @@ const AllPostsSection = styled.section`
 
       background-color: ${({theme}) => theme.backgroundColor};
       box-shadow: ${({theme}) => theme.boxShadow};
+
+      @media (max-width: 600px) {
+        font-size: 1.3rem;
+      }
     }
 
     .search-icon {
@@ -47,6 +51,10 @@ const AllPostsSection = styled.section`
       color: ${({theme}) => theme.accentColor};
       font-size: 1.2rem;
       font-weight: 600;
+
+      @media (max-width: 600px) {
+        font-size: 1.4rem;
+      }
     }
   }
 
