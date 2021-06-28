@@ -93,8 +93,9 @@ const Posts = ({ postsData }) => {
       </div>
 
       <ul className="post-list">
-          {!filteredPosts.length ? 'No Posts found' :
-
+          {
+          !filteredPosts.length ? 
+          'No Posts found' :
           filteredPosts.map(post => {
           const { id } = post;
           return <PostCard key={id} {...post}/>
