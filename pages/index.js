@@ -88,7 +88,7 @@ const Home = ({featuredPostsData}) => {
     <>
     <BlogIntro>
 
-      <HeroImage initial={{y:-100}} animate={{y:0}}>
+      <HeroImage initial={{y:-100, opacity: 0}} animate={{y:0, opacity: 1}} transition={{delay: 0.5}}>
         <Image 
         src="/dizzy-education.png" 
         width={450}
