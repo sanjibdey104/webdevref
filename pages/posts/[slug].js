@@ -112,7 +112,15 @@ const PostTemplate = ({postData}) => {
 
 
   const post = postData[0];
-  const {title, date, topic, content} = post;
+  const {title, date, topic, content } = post;
+
+  const fetchedDate = new Date(date);
+  const formattedDate = fetchedDate.toLocaleDateString('en-US', {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  });
+  console.log(formattedDate);
 
   const htmlContent = unified().use(parse).use(remark2react, {
       remarkReactComponents: {
@@ -128,7 +136,7 @@ const PostTemplate = ({postData}) => {
     <SinglePostSection initial={{y:50}} animate={{y:0}}>
       <PostHeader>
         <h2 className="title">{title}</h2>
-        <p className="date">{date}</p>
+        <p className="date">{formattedDate}</p>
         <p className="topic">#{topic}</p>
       </PostHeader>
 
