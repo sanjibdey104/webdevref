@@ -120,11 +120,10 @@ const PostTemplate = ({postData}) => {
     month: 'short',
     year: 'numeric',
   });
-  console.log(formattedDate);
 
   const htmlContent = unified().use(parse).use(remark2react, {
       remarkReactComponents: {
-          a: CustomLink,
+        a: CustomLink,
       },
   }).processSync(content).result;
 
@@ -153,25 +152,25 @@ const PostTemplate = ({postData}) => {
 }
 
 export const getStaticProps = async({params}) => {
-    const data = await getPost(params.slug);
+  const data = await getPost(params.slug);
 
-    return {
-        props: {
-            postData: data.posts
-        }
+  return {
+    props: {
+      postData: data.posts
     }
+  }
 }
  
 export default PostTemplate;
 
 
 export async function getStaticPaths() {
-    const posts = await getPostSlugs();
+  const posts = await getPostSlugs();
 
-    return {
-        paths: posts.map(({ slug }) => ({
-            params: { slug },
-        })),
-        fallback: false,
-    }
+  return {
+    paths: posts.map(({ slug }) => ({
+      params: { slug },
+    })),
+    fallback: false,
+  }
 }
