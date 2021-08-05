@@ -5,12 +5,9 @@ import { getPost, getPostSlugs } from "../../lib/data";
 import { ScrollHandlerLogic } from "../../components/ScrollHandler";
 import { motion } from "framer-motion";
 
-import unified from "unified";
-import parse from "remark-parse";
-import remark2react from "remark-react";
+import ReactMarkdown from "react-markdown";
+import CodeBlock from "../../components/CodeBlock";
 import CustomLink from "../../components/CustomLink";
-import remarkHtml from "remark-html";
-import * as highlight from "remark-highlight.js";
 import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 const SinglePostSection = styled(motion.section)`
@@ -61,29 +58,20 @@ const PostBody = styled.div`
     align-items: center;
     justify-content: center;
     margin: 1rem 0;
-    border: 1px solid ${({ theme }) => theme.accentColor};
+    border: 1px solid #3dffc5;
   }
 
   pre {
-    max-width: 100%;
-    border: 1px solid black;
-    /* padding: 1rem; */
-    margin: 1rem 0;
-    font-size: 0.85rem;
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: hidden;
-
-    code {
-      max-width: 100%;
-      /* background-color: #232536; */
-      border-radius: 0.5rem;
+    font-size: 0.9rem;
+    border-radius: 0.5rem;
+    /* code {
       padding: 0.85rem;
-    }
-
+    } */
     code,
-    span,
-    * {
-      font-family: monospace;
+    span {
+      font-family: "Consolas", "Source Code Pro", monospace;
     }
   }
 
@@ -122,15 +110,6 @@ const PostTemplate = ({ postData }) => {
     year: "numeric",
   });
 
-  const htmlContent = unified()
-    .use(parse)
-    .use(remark2react, {
-      remarkReactComponents: {
-        a: CustomLink,
-      },
-    })
-    .processSync(content).result;
-
   return (
     <>
       <div
@@ -145,8 +124,12 @@ const PostTemplate = ({ postData }) => {
           <p className="topic">#{topic}</p>
         </PostHeader>
 
-        {/* <PostBody dangerouslySetInnerHTML={{ __html: htmlContent }}></PostBody> */}
-        <PostBody>{htmlContent}</PostBody>
+        <PostBody>
+          <ReactMarkdown
+            children={content}
+            components={{ a: CustomLink, code: CodeBlock }}
+          />
+        </PostBody>
       </SinglePostSection>
 
       <Link href="/posts">
