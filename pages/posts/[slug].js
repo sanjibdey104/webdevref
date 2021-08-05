@@ -1,15 +1,17 @@
-import React, { useEffect } from "react"
-import Link from 'next/link';
-import styled from 'styled-components';
-import { getPost, getPostSlugs } from '../../lib/data';
-import {ScrollHandlerLogic} from '../../components/ScrollHandler';
+import React, { useEffect } from "react";
+import Link from "next/link";
+import styled from "styled-components";
+import { getPost, getPostSlugs } from "../../lib/data";
+import { ScrollHandlerLogic } from "../../components/ScrollHandler";
+import { motion } from "framer-motion";
 
-import unified from 'unified';
-import parse from 'remark-parse';
-import remark2react from 'remark-react';
-import CustomLink from '../../components/CustomLink';
-import {motion} from 'framer-motion';
-
+import unified from "unified";
+import parse from "remark-parse";
+import remark2react from "remark-react";
+import CustomLink from "../../components/CustomLink";
+import remarkHtml from "remark-html";
+import * as highlight from "remark-highlight.js";
+import "highlight.js/styles/atom-one-dark-reasonable.css";
 
 const SinglePostSection = styled(motion.section)`
   width: 70%;
@@ -25,7 +27,7 @@ const SinglePostSection = styled(motion.section)`
     width: 100%;
     margin-top: 0;
   }
-`
+`;
 
 const PostHeader = styled.div`
   width: 100%;
@@ -36,14 +38,17 @@ const PostHeader = styled.div`
     margin-bottom: 1rem;
   }
 
-  .date, .topic, .last-updated {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: ${({theme}) => theme.accentColor};
+  .date,
+  .topic,
+  .last-updated {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: ${({ theme }) => theme.accentColor};
   }
-`
+`;
 
 const PostBody = styled.div`
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -54,40 +59,39 @@ const PostBody = styled.div`
     font-size: 1.1rem;
     display: flex;
     align-items: center;
+    justify-content: center;
     margin: 1rem 0;
-    
-    &:hover svg {
-      transform: scale(1.2);
-    }
-    
-    svg {
-      display: inline;
-      color: ${({theme}) => theme.accentColor};
-      
-      margin-right: 1rem;
-      font-size: 1.2rem;
-      transform: scale(1);
-      transition: transform 150ms ease-in-out;
-    }
+    border: 1px solid ${({ theme }) => theme.accentColor};
   }
 
   pre {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    background-color: #011627;
-    background-color: ${({theme}) => theme.backgroundColor};
-    box-shadow: ${({theme})=> theme.boxShadow};
-    color: ${({theme}) => theme.accentColor};
+    max-width: 100%;
+    border: 1px solid black;
+    /* padding: 1rem; */
     margin: 1rem 0;
     font-size: 0.85rem;
-    font-weight: 500;
+    overflow-x: scroll;
+    overflow-y: hidden;
+
+    code {
+      max-width: 100%;
+      /* background-color: #232536; */
+      border-radius: 0.5rem;
+      padding: 0.85rem;
+    }
+
+    code,
+    span,
+    * {
+      font-family: monospace;
+    }
   }
-      
+
   blockquote {
     min-height: 3rem;
     padding-left: 1rem;
     margin: 1rem 0;
-    border-left: 5px solid ${({theme}) => theme.accentColor};
+    border-left: 5px solid ${({ theme }) => theme.accentColor};
 
     font-style: italic;
     display: flex;
@@ -98,71 +102,71 @@ const PostBody = styled.div`
     list-style-type: disc;
     padding: 0 1rem;
   }
+`;
 
-`
-
-const PostTemplate = ({postData}) => {
-
+const PostTemplate = ({ postData }) => {
   const [scrollIndicatorWidth, handleScroll] = ScrollHandlerLogic();
 
-  useEffect(() => {  
-    window.addEventListener('scroll',handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   const post = postData[0];
-  const {title, date, topic, content } = post;
+  const { title, date, topic, content } = post;
 
   const fetchedDate = new Date(date);
-  const formattedDate = fetchedDate.toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
+  const formattedDate = fetchedDate.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   });
 
-  const htmlContent = unified().use(parse).use(remark2react, {
+  const htmlContent = unified()
+    .use(parse)
+    .use(remark2react, {
       remarkReactComponents: {
         a: CustomLink,
       },
-  }).processSync(content).result;
-
+    })
+    .processSync(content).result;
 
   return (
     <>
-    <div className="scroll-tracker" style={{width: `${scrollIndicatorWidth}%`}} />
+      <div
+        className="scroll-tracker"
+        style={{ width: `${scrollIndicatorWidth}%` }}
+      />
 
-    <SinglePostSection initial={{y:50}} animate={{y:0}}>
-      <PostHeader>
-        <h2 className="title">{title}</h2>
-        <p className="date">{formattedDate}</p>
-        <p className="topic">#{topic}</p>
-      </PostHeader>
+      <SinglePostSection initial={{ y: 50 }} animate={{ y: 0 }}>
+        <PostHeader>
+          <h2 className="title">{title}</h2>
+          <p className="date">{formattedDate}</p>
+          <p className="topic">#{topic}</p>
+        </PostHeader>
 
-      <PostBody>
-      {htmlContent}
-      </PostBody>
-    </SinglePostSection>
-    
-    <Link href="/posts">
-      <a className="all-posts-link">Go to all posts...</a>
-    </Link>
-    </>        
+        {/* <PostBody dangerouslySetInnerHTML={{ __html: htmlContent }}></PostBody> */}
+        <PostBody>{htmlContent}</PostBody>
+      </SinglePostSection>
+
+      <Link href="/posts">
+        <a className="all-posts-link">Go to all posts...</a>
+      </Link>
+    </>
   );
-}
+};
 
-export const getStaticProps = async({params}) => {
+export const getStaticProps = async ({ params }) => {
   const data = await getPost(params.slug);
 
   return {
     props: {
-      postData: data.posts
-    }
-  }
-}
- 
-export default PostTemplate;
+      postData: data.posts,
+    },
+  };
+};
 
+export default PostTemplate;
 
 export async function getStaticPaths() {
   const posts = await getPostSlugs();
@@ -172,5 +176,5 @@ export async function getStaticPaths() {
       params: { slug },
     })),
     fallback: false,
-  }
+  };
 }
