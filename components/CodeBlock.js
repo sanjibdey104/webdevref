@@ -1,21 +1,24 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { vscDarkPlus } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { tomorrow } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { ThemeContext } from "../context/ThemeContext";
 
-const CodeBlock = ({ inline, className, children, ...props }) => {
+const CodeBlock = ({ node, inline, className, children, ...props }) => {
   const match = /language-(\w+)/.exec(className || "");
+  const { theme } = useContext(ThemeContext);
+
   return !inline && match ? (
     <SyntaxHighlighter
-      style={vscDarkPlus}
+      style={tomorrow}
       language={match[1]}
+      PreTag="div"
       children={String(children).replace(/\n$/, "")}
-      customStyle={{ background: "#232536" }}
-      {...props}
+      customStyle={{
+        background: `${theme === "dark" ? "#14171a" : "#2b2d42"}`,
+      }}
     />
   ) : (
-    <code className={className} {...props}>
-      {children}
-    </code>
+    <code className={className}>{children}</code>
   );
 };
 

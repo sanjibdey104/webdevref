@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { getPost, getPostSlugs } from "../../lib/data";
@@ -7,6 +7,7 @@ import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import CustomLink from "../../components/CustomLink";
 import CodeBlock from "../../components/CodeBlock";
+import { ThemeContext } from "../../context/ThemeContext";
 
 const SinglePostSection = styled(motion.section)`
   width: 70%;
@@ -72,18 +73,15 @@ const PostBody = styled.div`
   }
 
   pre {
-    overflow-x: auto;
-    overflow-y: hidden;
-    font-size: 0.9rem;
-    border-radius: 0.5rem;
-
-    code {
+    div {
+      overflow-x: scroll;
+      border-radius: 0.5rem;
       padding: 0.85rem;
-    }
-
-    code,
-    span {
-      font-family: "Roboto Mono", monospace;
+      background-color: "#2b2d42";
+      span {
+        font-size: 0.9rem;
+        font-family: "Source Code Pro", monospace;
+      }
     }
   }
 
@@ -105,6 +103,7 @@ const PostBody = styled.div`
 `;
 
 const PostTemplate = ({ postData }) => {
+  const { theme } = useContext(ThemeContext);
   const [scrollIndicatorWidth, handleScroll] = ScrollHandlerLogic();
 
   useEffect(() => {

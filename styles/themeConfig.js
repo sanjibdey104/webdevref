@@ -1,24 +1,23 @@
-import { useEffect, useState } from "react"
-
+import { useEffect, useState } from "react";
 
 export const ThemePreference = () => {
+  const [theme, setTheme] = useState("dark");
 
-    const [theme, setTheme] = useState('light');
-    
-    const setThemePreference = (mode) => {
-        window.localStorage.setItem('themePref', mode);
-        setTheme(mode);
-    }
+  const setThemePreference = (mode) => {
+    window.localStorage.setItem("themePref", mode);
+    setTheme(mode);
+  };
 
-    const toggleTheme = () => {
-        theme === 'dark' ? setThemePreference('light') : setThemePreference('dark');
-    }
+  const toggleTheme = () => {
+    theme === "dark" ? setThemePreference("light") : setThemePreference("dark");
+  };
 
-    useEffect(() => {
-        const savedThemePref = window.localStorage.getItem('themePref');
-        savedThemePref === 'dark' ? setThemePreference('dark') : setThemePreference('light');
-    }, [])
-    
-    
-    return [theme, toggleTheme];
-}
+  useEffect(() => {
+    const savedThemePref = window.localStorage.getItem("themePref");
+    savedThemePref === "dark"
+      ? setThemePreference("dark")
+      : setThemePreference("light");
+  }, []);
+
+  return [theme, toggleTheme];
+};

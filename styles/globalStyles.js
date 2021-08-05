@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
 html {
@@ -16,8 +16,8 @@ html {
 body {
     width: 100%;
     height: 100vh;
-    background-color: ${({theme}) => theme.backgroundColor};
-    color: ${({theme}) => theme.textColor};
+    background-color: ${({ theme }) => theme.backgroundColor};
+    color: ${({ theme }) => theme.textColor};
     line-height: 1.4;
     --logo-color: #f7e019;
 }
@@ -78,23 +78,23 @@ button {
     background-color: inherit;
     color: inherit;
     padding: 5px;
-    border-left: 3px solid ${({theme}) => theme.accentColor};
-    box-shadow: ${({theme}) => theme.boxShadow};
+    border-left: 3px solid ${({ theme }) => theme.accentColor};
+    box-shadow: ${({ theme }) => theme.boxShadow};
 }
-`
+`;
 
 export const lightTheme = {
-    backgroundColor: "#f5f5f5",
-    textColor: "#000",
-    accentColor: "#4262ff",
-    boxShadow: "inset 0 0 7.5px rgba(0,0,0,0.2)",
-    mobileNavLink: "#ffffffda"
-}
+  backgroundColor: "#f5f5f5",
+  textColor: "#000",
+  accentColor: "#4262ff",
+  boxShadow: "inset 0 0 7.5px rgba(0,0,0,0.2)",
+  mobileNavLink: "#ffffffda",
+};
 
 export const darkTheme = {
-    backgroundColor: "#121212",
-    textColor: "#ffffffda",
-    accentColor: "#bb86fc",
-    boxShadow: "0 0 8px #000",
-    mobileNavLink: "#000"
-}
+  backgroundColor: "#121212",
+  textColor: "#ffffffda",
+  accentColor: "#bb86fc",
+  boxShadow: "0 0 8px #000",
+  mobileNavLink: "#000",
+};
