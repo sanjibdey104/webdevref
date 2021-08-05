@@ -23,7 +23,7 @@ body {
 }
 
 .container {
-    width: 75%;
+    width: 80%;
     min-height: 100vh;
     margin: 0 auto;
     position: relative;
@@ -33,9 +33,8 @@ body {
     justify-content: space-between;
     align-items: center;
 
-    @media (max-width: 600px) {
+    @media (max-width: 768px) {
         width: 90%;
-        margin: 0 auto;
     }
 
 }
@@ -87,6 +86,7 @@ export const lightTheme = {
   backgroundColor: "#f5f5f5",
   textColor: "#000",
   accentColor: "#4262ff",
+  externalLink: "#4262ff",
   boxShadow: "inset 0 0 7.5px rgba(0,0,0,0.2)",
   mobileNavLink: "#ffffffda",
 };
@@ -95,6 +95,7 @@ export const darkTheme = {
   backgroundColor: "#121212",
   textColor: "#ffffffda",
   accentColor: "#bb86fc",
+  externalLink: "#3dffc5",
   boxShadow: "0 0 8px #000",
   mobileNavLink: "#000",
 };

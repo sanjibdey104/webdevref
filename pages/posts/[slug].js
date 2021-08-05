@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useEffect } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { getPost, getPostSlugs } from "../../lib/data";
@@ -7,11 +7,10 @@ import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import CustomLink from "../../components/CustomLink";
 import CodeBlock from "../../components/CodeBlock";
-import { ThemeContext } from "../../context/ThemeContext";
 
 const SinglePostSection = styled(motion.section)`
   width: 70%;
-  margin: 3rem auto;
+  margin: 3rem 0;
 
   display: flex;
   flex-direction: column;
@@ -19,7 +18,7 @@ const SinglePostSection = styled(motion.section)`
   justify-content: space-between;
   gap: 3rem;
 
-  @media (max-width: 600px) {
+  @media (max-width: 768px) {
     width: 100%;
     margin-top: 0;
   }
@@ -52,10 +51,14 @@ const PostBody = styled.div`
 
   a {
     position: relative;
-    font-size: 1.1rem;
     display: flex;
     align-items: center;
+    gap: 1rem;
     margin: 1rem 0;
+    color: ${({ theme }) => theme.externalLink};
+
+    font-size: 1.1rem;
+    font-weight: 500;
 
     &:hover svg {
       transform: scale(1.2);
@@ -63,10 +66,7 @@ const PostBody = styled.div`
 
     svg {
       display: inline;
-      color: ${({ theme }) => theme.accentColor};
-
-      margin-right: 1rem;
-      font-size: 1.2rem;
+      font-size: 1.4rem;
       transform: scale(1);
       transition: transform 150ms ease-in-out;
     }
@@ -103,7 +103,6 @@ const PostBody = styled.div`
 `;
 
 const PostTemplate = ({ postData }) => {
-  const { theme } = useContext(ThemeContext);
   const [scrollIndicatorWidth, handleScroll] = ScrollHandlerLogic();
 
   useEffect(() => {
