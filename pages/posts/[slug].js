@@ -1,15 +1,12 @@
-import React, { useEffect } from "react"
-import Link from 'next/link';
-import styled from 'styled-components';
-import { getPost, getPostSlugs } from '../../lib/data';
-import {ScrollHandlerLogic} from '../../components/ScrollHandler';
-
-import unified from 'unified';
-import parse from 'remark-parse';
-import remark2react from 'remark-react';
-import CustomLink from '../../components/CustomLink';
-import {motion} from 'framer-motion';
-
+import React, { useEffect } from "react";
+import Link from "next/link";
+import styled from "styled-components";
+import { getPost, getPostSlugs } from "../../lib/data";
+import { ScrollHandlerLogic } from "../../components/ScrollHandler";
+import { motion } from "framer-motion";
+import ReactMarkdown from "react-markdown";
+import CustomLink from "../../components/CustomLink";
+import CodeBlock from "../../components/CodeBlock";
 
 const SinglePostSection = styled(motion.section)`
   width: 70%;
@@ -25,7 +22,7 @@ const SinglePostSection = styled(motion.section)`
     width: 100%;
     margin-top: 0;
   }
-`
+`;
 
 const PostHeader = styled.div`
   width: 100%;
@@ -36,14 +33,17 @@ const PostHeader = styled.div`
     margin-bottom: 1rem;
   }
 
-  .date, .topic, .last-updated {
-  font-size: 0.85rem;
-  font-weight: 500;
-  color: ${({theme}) => theme.accentColor};
+  .date,
+  .topic,
+  .last-updated {
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: ${({ theme }) => theme.accentColor};
   }
-`
+`;
 
 const PostBody = styled.div`
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -55,15 +55,15 @@ const PostBody = styled.div`
     display: flex;
     align-items: center;
     margin: 1rem 0;
-    
+
     &:hover svg {
       transform: scale(1.2);
     }
-    
+
     svg {
       display: inline;
-      color: ${({theme}) => theme.accentColor};
-      
+      color: ${({ theme }) => theme.accentColor};
+
       margin-right: 1rem;
       font-size: 1.2rem;
       transform: scale(1);
@@ -72,22 +72,26 @@ const PostBody = styled.div`
   }
 
   pre {
-    padding: 1rem;
+    overflow-x: auto;
+    overflow-y: hidden;
+    font-size: 0.9rem;
     border-radius: 0.5rem;
-    background-color: #011627;
-    background-color: ${({theme}) => theme.backgroundColor};
-    box-shadow: ${({theme})=> theme.boxShadow};
-    color: ${({theme}) => theme.accentColor};
-    margin: 1rem 0;
-    font-size: 0.85rem;
-    font-weight: 500;
+
+    code {
+      padding: 0.85rem;
+    }
+
+    code,
+    span {
+      font-family: "Roboto Mono", monospace;
+    }
   }
-      
+
   blockquote {
     min-height: 3rem;
     padding-left: 1rem;
     margin: 1rem 0;
-    border-left: 5px solid ${({theme}) => theme.accentColor};
+    border-left: 5px solid ${({ theme }) => theme.accentColor};
 
     font-style: italic;
     display: flex;
@@ -98,71 +102,69 @@ const PostBody = styled.div`
     list-style-type: disc;
     padding: 0 1rem;
   }
+`;
 
-`
-
-const PostTemplate = ({postData}) => {
-
+const PostTemplate = ({ postData }) => {
   const [scrollIndicatorWidth, handleScroll] = ScrollHandlerLogic();
 
-  useEffect(() => {  
-    window.addEventListener('scroll',handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll);
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-
   const post = postData[0];
-  const {title, date, topic, content } = post;
+  const { title, date, topic, content } = post;
 
   const fetchedDate = new Date(date);
-  const formattedDate = fetchedDate.toLocaleDateString('en-US', {
-    day: 'numeric',
-    month: 'short',
-    year: 'numeric',
+  const formattedDate = fetchedDate.toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
   });
-
-  const htmlContent = unified().use(parse).use(remark2react, {
-      remarkReactComponents: {
-        a: CustomLink,
-      },
-  }).processSync(content).result;
-
 
   return (
     <>
-    <div className="scroll-tracker" style={{width: `${scrollIndicatorWidth}%`}} />
+      <div
+        className="scroll-tracker"
+        style={{ width: `${scrollIndicatorWidth}%` }}
+      />
 
-    <SinglePostSection initial={{y:50}} animate={{y:0}}>
-      <PostHeader>
-        <h2 className="title">{title}</h2>
-        <p className="date">{formattedDate}</p>
-        <p className="topic">#{topic}</p>
-      </PostHeader>
+      <SinglePostSection initial={{ y: 50 }} animate={{ y: 0 }}>
+        <PostHeader>
+          <h2 className="title">{title}</h2>
+          <p className="date">{formattedDate}</p>
+          <p className="topic">#{topic}</p>
+        </PostHeader>
 
-      <PostBody>
-      {htmlContent}
-      </PostBody>
-    </SinglePostSection>
-    
-    <Link href="/posts">
-      <a className="all-posts-link">Go to all posts...</a>
-    </Link>
-    </>        
+        <PostBody>
+          <ReactMarkdown
+            children={content}
+            components={{
+              a: CustomLink,
+              code: CodeBlock,
+            }}
+          />
+        </PostBody>
+      </SinglePostSection>
+
+      <Link href="/posts">
+        <a className="all-posts-link">Go to all posts...</a>
+      </Link>
+    </>
   );
-}
+};
 
-export const getStaticProps = async({params}) => {
+export const getStaticProps = async ({ params }) => {
   const data = await getPost(params.slug);
 
   return {
     props: {
-      postData: data.posts
-    }
-  }
-}
- 
-export default PostTemplate;
+      postData: data.posts,
+    },
+  };
+};
 
+export default PostTemplate;
 
 export async function getStaticPaths() {
   const posts = await getPostSlugs();
@@ -172,5 +174,5 @@ export async function getStaticPaths() {
       params: { slug },
     })),
     fallback: false,
-  }
+  };
 }
