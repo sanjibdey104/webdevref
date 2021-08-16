@@ -4,8 +4,11 @@ export const GlobalStyles = createGlobalStyle`
 
 :root {
     --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Karla', sans-serif;
+    --font-secondary: 'Playfair Display', serif;
     --logo-color: #f7e019;
+    --js-theme: #f0db4f;
+    --react-theme: #61dafb;
+    --css-theme: #e31b5f;
 }
 
 html {
@@ -24,7 +27,7 @@ body {
     height: 100vh;
     line-height: 1.4;
     background-color: ${({ theme }) => theme.backgroundColor};
-    color: ${({ theme }) => theme.textColor};
+    color: ${({ theme }) => theme.smText};
     font-family: var(--font-primary);
 }
 
@@ -42,7 +45,6 @@ body {
     @media (max-width: 768px) {
         width: 90%;
     }
-
 }
 
 ul {
@@ -90,18 +92,22 @@ button {
 
 export const lightTheme = {
   backgroundColor: "#f5f5f5",
-  textColor: "#000",
+  lgText: "#250902",
+  smText: "#151515",
+  lightText: "#808080",
   accentColor: "#4262ff",
   externalLink: "#4262ff",
-  boxShadow: "inset 0 0 7.5px rgba(0,0,0,0.2)",
+  boxShadow: "inset 0 0 8px rgba(0,0,0,0.2)",
   mobileNavLink: "#ffffffda",
 };
 
 export const darkTheme = {
   backgroundColor: "#121212",
-  textColor: "#bbb",
-  accentColor: "#bb86fc",
+  lgText: "#d3cecc",
+  smText: "#e9e6e6",
+  lightText: "#808080",
+  accentColor: "#a1b567",
   externalLink: "#3dffc5",
   boxShadow: "0 0 8px #000",
-  mobileNavLink: "#000",
+  mobileNavLink: "#151515",
 };

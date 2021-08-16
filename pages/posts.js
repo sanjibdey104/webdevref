@@ -16,10 +16,11 @@ const AllPostsSection = styled.section`
 
   h2 {
     font-size: 1.5rem;
+    color: ${({ theme }) => theme.lgText};
   }
 
   .post-search {
-    margin-bottom: 2rem;
+    margin-bottom: 4rem;
     width: 20rem;
     position: relative;
 
@@ -33,11 +34,10 @@ const AllPostsSection = styled.section`
 
       font-size: 1.1rem;
       font-weight: 500;
-      font-family: var(--font-secondary);
-      border-left: 3px solid ${({ theme }) => theme.accentColor};
-      color: ${({ theme }) => theme.textColor};
-
+      font-family: var(--font-primary);
+      color: ${({ theme }) => theme.smText};
       background-color: ${({ theme }) => theme.backgroundColor};
+      border-left: 3px solid ${({ theme }) => theme.accentColor};
       box-shadow: ${({ theme }) => theme.boxShadow};
     }
 
@@ -57,7 +57,7 @@ const AllPostsSection = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 5rem;
   }
 
   @media (max-width: 600px) {

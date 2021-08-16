@@ -7,10 +7,11 @@ const PostCardComponent = styled(motion.li)`
   width: clamp(22rem, 20vw, 25rem);
   height: 12rem;
   cursor: pointer;
+  position: relative;
 
   border-radius: 0.5rem;
+  border-top-left-radius: initial;
   padding: 0.5rem;
-  border-left: 3px solid ${({ theme }) => theme.accentColor};
   box-shadow: ${({ theme }) => theme.boxShadow};
 
   align-self: center;
@@ -22,7 +23,6 @@ const PostCardComponent = styled(motion.li)`
   gap: 1rem;
 
   position: relative;
-  overflow: hidden;
 
   &:hover {
     .card-footer {
@@ -34,22 +34,21 @@ const PostCardComponent = styled(motion.li)`
 
   .card-header {
     .title {
-      font-size: 1.1rem;
+      font-size: 1.2rem;
       margin-bottom: 0.5rem;
       font-weight: 500;
+      font-family: var(--font-secondary);
+      color: ${({ theme }) => theme.lgText};
     }
     .date {
       font-size: 0.75rem;
-      color: ${({ theme }) => theme.textColor};
-      color: #808080;
+      color: ${({ theme }) => theme.lightText};
     }
   }
 
   .card-body {
-    font-family: var(--font-secondary);
     .excerpt {
-      width: 100%;
-      font-size: 0.9rem;
+      font-size: 0.85rem;
     }
   }
 
@@ -58,7 +57,6 @@ const PostCardComponent = styled(motion.li)`
     align-items: center;
     justify-content: space-between;
 
-    .topic,
     .read-more-link {
       font-size: 0.85rem;
       font-weight: 500;
@@ -66,13 +64,36 @@ const PostCardComponent = styled(motion.li)`
     }
     .read-more-link {
       margin-left: auto;
-      transform: translateY(2rem);
-      transition: transform 150ms ease-in-out;
-
-      @media (max-width: 600px) {
-        transform: translateY(0);
-      }
     }
+  }
+
+  .topic {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translateY(-100%);
+    padding: 0.3rem;
+    box-shadow: ${({ theme }) => theme.boxShadow};
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+
+    color: #000;
+    font-size: 0.75rem;
+    font-weight: 500;
+    width: 5rem;
+    text-align: center;
+  }
+
+  #javascript {
+    background-color: var(--js-theme);
+  }
+
+  #css {
+    background-color: var(--css-theme);
+  }
+
+  #react {
+    background-color: var(--react-theme);
   }
 `;
 
@@ -90,7 +111,9 @@ const PostCard = ({ title, slug, date, excerpt, topic }) => {
         </div>
 
         <div className="card-footer">
-          <p className="topic">#{topic}</p>
+          <p className="topic" id={topic}>
+            #{topic}
+          </p>
           <p className="read-more-link">Read More...</p>
         </div>
       </PostCardComponent>

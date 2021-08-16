@@ -30,7 +30,10 @@ const PostHeader = styled.div`
   padding-bottom: 0.5rem;
 
   .title {
+    color: ${({ theme }) => theme.lgText};
+    font-family: var(--font-secondary);
     margin-bottom: 1rem;
+    font-size: 2.2rem;
   }
 
   .date,
@@ -48,7 +51,6 @@ const PostBody = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   line-height: 1.6;
-  font-family: var(--font-secondary);
 
   a {
     position: relative;
@@ -56,7 +58,7 @@ const PostBody = styled.div`
     align-items: center;
     gap: 1rem;
     margin: 1rem 0;
-    color: ${({ theme }) => theme.externalLink};
+    color: ${({ theme }) => theme.accentColor};
 
     font-size: 1.1rem;
     font-weight: 500;

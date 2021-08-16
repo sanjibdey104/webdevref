@@ -6,9 +6,9 @@ const AboutSection = styled(motion.section)`
   width: 65%;
   margin: 0 auto;
   margin-bottom: 1rem;
-  font-family: var(--font-secondary);
 
   h2 {
+    font-family: var(--font-secondary);
     text-align: center;
     margin-bottom: 2rem;
   }
