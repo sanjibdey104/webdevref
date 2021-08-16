@@ -9,7 +9,7 @@ import CustomLink from "../../components/CustomLink";
 import CodeBlock from "../../components/CodeBlock";
 
 const SinglePostSection = styled(motion.section)`
-  width: 70%;
+  width: 65%;
   margin: 3rem 0;
 
   display: flex;
@@ -48,6 +48,7 @@ const PostBody = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   line-height: 1.6;
+  font-family: var(--font-secondary);
 
   a {
     position: relative;
@@ -80,7 +81,7 @@ const PostBody = styled.div`
       background-color: "#2b2d42";
       span {
         font-size: 0.9rem;
-        font-family: "Source Code Pro", monospace;
+        font-family: monospace;
       }
     }
   }
@@ -90,8 +91,6 @@ const PostBody = styled.div`
     padding-left: 1rem;
     margin: 1rem 0;
     border-left: 5px solid ${({ theme }) => theme.accentColor};
-
-    font-style: italic;
     display: flex;
     align-items: center;
   }

@@ -40,14 +40,16 @@ const PostCardComponent = styled(motion.li)`
     }
     .date {
       font-size: 0.75rem;
-      color: ${({ theme }) => theme.accentColor};
+      color: ${({ theme }) => theme.textColor};
+      color: #808080;
     }
   }
 
   .card-body {
+    font-family: var(--font-secondary);
     .excerpt {
       width: 100%;
-      font-size: 0.85rem;
+      font-size: 0.9rem;
     }
   }
 
@@ -68,7 +70,6 @@ const PostCardComponent = styled(motion.li)`
       transition: transform 150ms ease-in-out;
 
       @media (max-width: 600px) {
-        color: $accent-color-secondary;
         transform: translateY(0);
       }
     }

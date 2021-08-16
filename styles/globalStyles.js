@@ -1,6 +1,13 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyles = createGlobalStyle`
+
+:root {
+    --font-primary: 'Montserrat', sans-serif;
+    --font-secondary: 'Karla', sans-serif;
+    --logo-color: #f7e019;
+}
+
 html {
     box-sizing: border-box;
     font-size: 100%;
@@ -10,16 +17,15 @@ html {
     box-sizing: inherit;
     margin: 0;
     padding: 0;
-    font-family: 'Montserrat', sans-serif;
 }
 
 body {
     width: 100%;
     height: 100vh;
+    line-height: 1.4;
     background-color: ${({ theme }) => theme.backgroundColor};
     color: ${({ theme }) => theme.textColor};
-    line-height: 1.4;
-    --logo-color: #f7e019;
+    font-family: var(--font-primary);
 }
 
 .container {
@@ -93,7 +99,7 @@ export const lightTheme = {
 
 export const darkTheme = {
   backgroundColor: "#121212",
-  textColor: "#ffffffda",
+  textColor: "#bbb",
   accentColor: "#bb86fc",
   externalLink: "#3dffc5",
   boxShadow: "0 0 8px #000",

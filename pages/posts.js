@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import styled from 'styled-components';
-import PostCard from '../components/PostCard';
-import { getPosts } from '../lib/data';
+import React, { useState, useEffect } from "react";
+import styled from "styled-components";
+import PostCard from "../components/PostCard";
+import { getPosts } from "../lib/data";
 import { FiSearch } from "react-icons/fi";
 
 const AllPostsSection = styled.section`
@@ -33,11 +33,12 @@ const AllPostsSection = styled.section`
 
       font-size: 1.1rem;
       font-weight: 500;
-      border-left: 3px solid ${({theme}) => theme.accentColor};
-      color: ${({theme}) => theme.textColor};
+      font-family: var(--font-secondary);
+      border-left: 3px solid ${({ theme }) => theme.accentColor};
+      color: ${({ theme }) => theme.textColor};
 
-      background-color: ${({theme}) => theme.backgroundColor};
-      box-shadow: ${({theme}) => theme.boxShadow};
+      background-color: ${({ theme }) => theme.backgroundColor};
+      box-shadow: ${({ theme }) => theme.boxShadow};
     }
 
     .search-icon {
@@ -45,7 +46,7 @@ const AllPostsSection = styled.section`
       right: 0.5rem;
       top: 50%;
       transform: translateY(-50%);
-      color: ${({theme}) => theme.accentColor};
+      color: ${({ theme }) => theme.accentColor};
       font-size: 1.2rem;
       font-weight: 600;
     }
@@ -66,53 +67,53 @@ const AllPostsSection = styled.section`
       font-size: 1.3rem;
     }
   }
-`
+`;
 
 const Posts = ({ postsData }) => {
+  const { posts } = postsData;
+  const [searchValue, setSearchValue] = useState("");
 
-  const {posts} = postsData;
-  const [searchValue, setSearchValue] = useState('');
-  
-  let filteredPosts = posts.filter(post => {
+  let filteredPosts = posts.filter((post) => {
     return post.title.toLowerCase().includes(searchValue.toLowerCase());
-  })
+  });
 
   return (
     <AllPostsSection>
       <h2>all the posts</h2>
 
       <div className="post-search">
-        <input type="text" className="search-bar" 
-        placeholder="search for a post..."
-        value={searchValue}
-        onChange={e => setSearchValue(e.target.value)}
+        <input
+          type="text"
+          className="search-bar"
+          placeholder="search for a post..."
+          value={searchValue}
+          onChange={(e) => setSearchValue(e.target.value)}
         />
         <button className="search-icon">
-        <FiSearch />
+          <FiSearch />
         </button>
       </div>
 
       <ul className="post-list">
-          {
-          !filteredPosts.length ? 
-          'No Posts found' :
-          filteredPosts.map(post => {
-          const { id } = post;
-          return <PostCard key={id} {...post}/>
-          })}     
+        {!filteredPosts.length
+          ? "No Posts found"
+          : filteredPosts.map((post) => {
+              const { id } = post;
+              return <PostCard key={id} {...post} />;
+            })}
       </ul>
     </AllPostsSection>
   );
-}
+};
 
-export const getStaticProps = async() => {
-    const postsData = await getPosts();
+export const getStaticProps = async () => {
+  const postsData = await getPosts();
 
-    return {
-        props: {
-            postsData
-        }
-    }
-}
- 
+  return {
+    props: {
+      postsData,
+    },
+  };
+};
+
 export default Posts;
