@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { ThemeToggleButton } from "./ThemeToggleButton";
-import { NavbarDisplayContext } from "../context/NavbarDisplayContext";
+import { NavbarDisplayContext } from "../../context/NavbarDisplayContext";
 
 const Nav = styled.nav`
   display: flex;

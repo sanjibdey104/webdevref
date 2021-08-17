@@ -2,11 +2,11 @@ import React, { useEffect } from "react";
 import Link from "next/link";
 import styled from "styled-components";
 import { getPost, getPostSlugs } from "../../lib/data";
-import { ScrollHandlerLogic } from "../../components/ScrollHandler";
+import { ScrollHandlerLogic } from "../../components/post/ScrollHandler";
 import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
-import CustomLink from "../../components/CustomLink";
-import CodeBlock from "../../components/CodeBlock";
+import CustomLink from "../../components/post/CustomLink";
+import CodeBlock from "../../components/post/CodeBlock";
 
 const SinglePostSection = styled(motion.section)`
   width: 65%;
