@@ -108,7 +108,6 @@ const PostBody = styled.div`
       overflow-x: scroll;
       border-radius: 0.5rem;
       padding: 0.85rem;
-      background-color: "#2b2d42";
       span {
         font-size: 0.9rem;
         font-family: monospace;

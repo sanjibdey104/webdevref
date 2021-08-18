@@ -14,7 +14,7 @@ const CodeBlock = ({ node, inline, className, children, ...props }) => {
       PreTag="div"
       children={String(children).replace(/\n$/, "")}
       customStyle={{
-        background: `${theme === "dark" ? "#14171a" : "#2b2d42"}`,
+        background: `${theme === "dark" ? "#0a0e14" : "#2b2d42"}`,
       }}
     />
   ) : (
