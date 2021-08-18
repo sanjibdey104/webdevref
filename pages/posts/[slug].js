@@ -37,11 +37,22 @@ const PostHeader = styled.div`
   }
 
   .date,
-  .topic,
   .last-updated {
     font-size: 0.85rem;
     font-weight: 500;
     color: ${({ theme }) => theme.accentColor};
+  }
+
+  .javascript {
+    color: var(--js-theme);
+  }
+
+  .react {
+    color: var(--react-theme);
+  }
+
+  .css {
+    color: var(--css-theme);
   }
 `;
 
@@ -129,13 +140,8 @@ const PostTemplate = ({ postData }) => {
   }, []);
 
   const post = postData[0];
-  const {
-    title,
-    date,
-    topic,
-    content,
-    banner: { url },
-  } = post;
+  const { title, date, topic, content } = post;
+  const { banner = {} } = post;
 
   const fetchedDate = new Date(date);
   const formattedDate = fetchedDate.toLocaleDateString("en-US", {
@@ -155,17 +161,19 @@ const PostTemplate = ({ postData }) => {
         <PostHeader>
           <h2 className="title">{title}</h2>
           <p className="date">{formattedDate}</p>
-          <p className="topic">#{topic}</p>
+          <p className={topic}>#{topic}</p>
         </PostHeader>
 
-        <PostBanner>
-          <img src={url} alt="post banner" />
-          <div id="banner-attribution">
-            <a href="canva.com" target="_blank" rel="noreferrer">
-              self-designed on canva.com
-            </a>
-          </div>
-        </PostBanner>
+        {banner ? (
+          <PostBanner>
+            <img src={banner.url} alt="post banner" />
+            <div id="banner-attribution">
+              <a href="canva.com" target="_blank" rel="noreferrer">
+                self-designed on canva.com
+              </a>
+            </div>
+          </PostBanner>
+        ) : null}
 
         <PostBody>
           <ReactMarkdown
