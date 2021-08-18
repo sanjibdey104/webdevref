@@ -4,10 +4,14 @@ import Logo from "./Logo";
 import Navbar from "./Navbar";
 
 const HeaderComponent = styled.header`
-  width: 100%;
+  width: 90%;
   height: 4rem;
   padding: 0.5rem 0;
   margin-bottom: 2rem;
+
+  @media (max-width: 600px) {
+    width: 100%;
+  }
 
   display: flex;
   align-items: center;
