@@ -5,6 +5,7 @@ export const GlobalStyles = createGlobalStyle`
 :root {
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Playfair Display', serif;
+    --font-for-fun: 'Indie Flower', cursive;;
     --logo-color: #f7e019;
     --js-theme: #f0db4f;
     --react-theme: #61dafb;
@@ -41,6 +42,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    gap: 3rem;
 
     @media (max-width: 768px) {
         width: 90%;
@@ -102,7 +104,7 @@ export const lightTheme = {
 };
 
 export const darkTheme = {
-  backgroundColor: "#121212",
+  backgroundColor: "#151515",
   lgText: "#d3cecc",
   smText: "#e9e6e6",
   lightText: "#808080",

@@ -45,8 +45,25 @@ const PostHeader = styled.div`
   }
 `;
 
+const PostBanner = styled.div`
+  img {
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    border-radius: 0.5rem;
+    width: 100%;
+  }
+
+  #banner-attribution {
+    font-size: 0.7rem;
+    color: ${({ theme }) => theme.textColor};
+    text-align: right;
+  }
+`;
+
 const PostBody = styled.div`
+  width: 95%;
+  margin: 0 auto;
   max-width: 100%;
+
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
@@ -112,7 +129,13 @@ const PostTemplate = ({ postData }) => {
   }, []);
 
   const post = postData[0];
-  const { title, date, topic, content } = post;
+  const {
+    title,
+    date,
+    topic,
+    content,
+    banner: { url },
+  } = post;
 
   const fetchedDate = new Date(date);
   const formattedDate = fetchedDate.toLocaleDateString("en-US", {
@@ -134,6 +157,15 @@ const PostTemplate = ({ postData }) => {
           <p className="date">{formattedDate}</p>
           <p className="topic">#{topic}</p>
         </PostHeader>
+
+        <PostBanner>
+          <img src={url} alt="post banner" />
+          <div id="banner-attribution">
+            <a href="canva.com" target="_blank" rel="noreferrer">
+              self-designed on canva.com
+            </a>
+          </div>
+        </PostBanner>
 
         <PostBody>
           <ReactMarkdown

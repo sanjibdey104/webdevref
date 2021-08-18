@@ -8,13 +8,11 @@ import Image from "next/image";
 
 const BlogIntro = styled(motion.section)`
   height: 30rem;
-  margin-bottom: 5rem;
   position: relative;
 
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
 `;
 
 const HeroImage = styled(motion.div)`
@@ -52,15 +50,14 @@ const Description = styled.section`
 const FeaturePostsSection = styled.section`
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 4rem;
 
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 5rem;
 
   h2 {
     font-size: 1.5rem;
-    margin-bottom: 5rem;
   }
 
   .post-list {
@@ -69,14 +66,6 @@ const FeaturePostsSection = styled.section`
     justify-content: center;
     align-items: center;
     gap: 3rem;
-  }
-
-  @media (max-width: 600px) {
-    width: 100%;
-    h2 {
-      text-align: center;
-      font-size: 1.3rem;
-    }
   }
 `;
 
@@ -89,7 +78,7 @@ const Home = ({ featuredPostsData }) => {
         <HeroImage
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 0.5 }}
+          transition={{ delay: 1 }}
         >
           <Image
             src="/dizzy-education.png"
