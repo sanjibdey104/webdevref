@@ -18,6 +18,10 @@ const SinglePostSection = styled(motion.section)`
   justify-content: space-between;
   gap: 3rem;
 
+  & > * {
+    width: 100%;
+  }
+
   @media (max-width: 768px) {
     width: 100%;
     margin-top: 0;
@@ -25,7 +29,6 @@ const SinglePostSection = styled(motion.section)`
 `;
 
 const PostHeader = styled.div`
-  width: 100%;
   border-bottom: 1px solid;
   padding-bottom: 0.5rem;
 
@@ -71,10 +74,6 @@ const PostBanner = styled.div`
 `;
 
 const PostBody = styled.div`
-  width: 95%;
-  margin: 0 auto;
-  max-width: 100%;
-
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
