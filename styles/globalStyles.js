@@ -10,6 +10,7 @@ export const GlobalStyles = createGlobalStyle`
     --js-theme: #f0db4f;
     --react-theme: #61dafb;
     --css-theme: #e31b5f;
+    --offtech-theme: #99d98c;
 }
 
 html {

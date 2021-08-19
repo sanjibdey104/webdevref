@@ -104,6 +104,10 @@ const PostCardComponent = styled(motion.li)`
   #react {
     background-color: var(--react-theme);
   }
+
+  #offtech {
+    background-color: var(--offtech-theme);
+  }
 `;
 
 const PostCard = ({ index, title, slug, date, excerpt, topic, content }) => {
