@@ -97,10 +97,18 @@ const PostCardComponent = styled(motion.li)`
   }
 `;
 
-const PostCard = ({ title, slug, date, excerpt, topic }) => {
+const PostCard = ({ index, title, slug, date, excerpt, topic }) => {
   return (
     <Link href={`/posts/${slug}`}>
-      <PostCardComponent initial={{ y: 50 }} animate={{ y: 0 }}>
+      <PostCardComponent
+        variants={{
+          hidden: { y: 50 },
+          visible: (index) => ({ y: 0, transition: { delay: index * 0.05 } }),
+        }}
+        initial="hidden"
+        animate="visible"
+        custom={index}
+      >
         <div className="card-header">
           <h3 className="title">{title}</h3>
           <p className="date">{date}</p>

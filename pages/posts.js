@@ -97,9 +97,9 @@ const Posts = ({ postsData }) => {
       <ul className="post-list">
         {!filteredPosts.length
           ? "No Posts found"
-          : filteredPosts.map((post) => {
+          : filteredPosts.map((post, index) => {
               const { id } = post;
-              return <PostCard key={id} {...post} />;
+              return <PostCard index={index} key={id} {...post} />;
             })}
       </ul>
     </AllPostsSection>
