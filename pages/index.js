@@ -65,7 +65,7 @@ const FeaturePostsSection = styled.section`
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 3rem;
+    gap: 5rem;
   }
 `;
 
