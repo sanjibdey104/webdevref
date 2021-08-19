@@ -69,7 +69,8 @@ const AllPostsSection = styled.section`
   }
 `;
 
-const Posts = ({ postsData }) => {
+const Posts = (props) => {
+  const { postsData } = props;
   const { posts } = postsData;
   const [searchValue, setSearchValue] = useState("");
 

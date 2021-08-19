@@ -59,7 +59,7 @@ const PostCardComponent = styled(motion.li)`
     .read-time {
       display: flex;
       align-items: center;
-      gap: 0.2rem;
+      gap: 0.3rem;
       font-size: 0.8rem;
       color: var(--light-text);
     }
@@ -99,7 +99,8 @@ const PostCardComponent = styled(motion.li)`
   }
 `;
 
-const PostCard = ({ index, title, slug, date, excerpt, topic, content }) => {
+const PostCard = (props) => {
+  const { index, title, slug, date, excerpt, topic, content } = props;
   const stringToRead = content.concat(" ", title);
   const estimatedReadTime = calcEstimatedReadTime(stringToRead);
 

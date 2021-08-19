@@ -52,7 +52,7 @@ const PostHeader = styled.div`
 
   .read-time {
     display: flex;
-    gap: 0.2rem;
+    gap: 0.3rem;
     align-items: center;
   }
 `;
