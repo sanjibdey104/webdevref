@@ -11,6 +11,7 @@ export const GlobalStyles = createGlobalStyle`
     --react-theme: #61dafb;
     --css-theme: #e31b5f;
     --offtech-theme: #99d98c;
+    --light-text: #808080;
 }
 
 html {
@@ -97,7 +98,7 @@ export const lightTheme = {
   backgroundColor: "#f5f5f5",
   lgText: "#250902",
   smText: "#151515",
-  lightText: "#808080",
+  lightText: "#4d4d4d",
   accentColor: "#4262ff",
   externalLink: "#4262ff",
   boxShadow: "inset 0 0 8px rgba(0,0,0,0.2)",
@@ -107,7 +108,7 @@ export const lightTheme = {
 export const darkTheme = {
   backgroundColor: "#151515",
   lgText: "#d3cecc",
-  smText: "#e9e6e6",
+  smText: "#d1d5db",
   lightText: "#808080",
   accentColor: "#a1b567",
   externalLink: "#3dffc5",

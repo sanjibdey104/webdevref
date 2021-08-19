@@ -8,7 +8,7 @@ import ReactMarkdown from "react-markdown";
 import CustomLink from "../../components/post/CustomLink";
 import CodeBlock from "../../components/post/CodeBlock";
 import calcEstimatedReadTime from "../../utils/readTime";
-import { FiClock } from "react-icons/fi";
+import { FaClock } from "react-icons/fa";
 
 const SinglePostSection = styled(motion.section)`
   width: 65%;
@@ -38,25 +38,19 @@ const PostHeader = styled.div`
     color: ${({ theme }) => theme.lgText};
     font-family: var(--font-secondary);
     margin-bottom: 1rem;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
   }
 
   section {
     font-size: 0.85rem;
     font-weight: 500;
-    color: ${({ theme }) => theme.accentColor};
-
     display: flex;
     gap: 1rem;
     align-items: center;
-  }
-
-  .topic {
-    color: #d00000;
+    color: var(--light-text);
   }
 
   .read-time {
-    color: #0a9396;
     display: flex;
     gap: 0.2rem;
     align-items: center;
@@ -71,9 +65,10 @@ const PostBanner = styled.div`
   }
 
   #banner-attribution {
-    font-size: 0.7rem;
-    color: ${({ theme }) => theme.textColor};
+    margin-top: 0.5rem;
     text-align: right;
+    font-size: 0.75rem;
+    color: var(--light-text);
   }
 `;
 
@@ -84,26 +79,11 @@ const PostBody = styled.div`
   line-height: 1.6;
 
   a {
-    position: relative;
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem 0;
-    color: ${({ theme }) => theme.accentColor};
-
+    width: fit-content;
     font-size: 1.1rem;
     font-weight: 500;
-
-    &:hover svg {
-      transform: scale(1.2);
-    }
-
-    svg {
-      display: inline;
-      font-size: 1.4rem;
-      transform: scale(1);
-      transition: transform 150ms ease-in-out;
-    }
+    color: ${({ theme }) => theme.accentColor};
+    border-bottom: 2px solid;
   }
 
   pre {
@@ -122,9 +102,10 @@ const PostBody = styled.div`
     min-height: 3rem;
     padding-left: 1rem;
     margin: 1rem 0;
-    border-left: 5px solid ${({ theme }) => theme.accentColor};
     display: flex;
     align-items: center;
+    font-style: italic;
+    border-left: 5px solid ${({ theme }) => theme.accentColor};
   }
 
   ul {
@@ -163,12 +144,12 @@ const PostTemplate = ({ postData }) => {
 
       <SinglePostSection initial={{ y: 50 }} animate={{ y: 0 }}>
         <PostHeader>
-          <h2 className="title">{title}</h2>
+          <h1 className="title">{title}</h1>
           <section>
             <p className="date">{formattedDate}</p>
             <p className="topic">#{topic}</p>
             <p className="read-time">
-              <FiClock />
+              <FaClock />
               {estimatedReadTime} min read
             </p>
           </section>
