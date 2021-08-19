@@ -7,6 +7,8 @@ import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import CustomLink from "../../components/post/CustomLink";
 import CodeBlock from "../../components/post/CodeBlock";
+import calcEstimatedReadTime from "../../utils/readTime";
+import { FiClock } from "react-icons/fi";
 
 const SinglePostSection = styled(motion.section)`
   width: 65%;
@@ -39,23 +41,25 @@ const PostHeader = styled.div`
     font-size: 2.2rem;
   }
 
-  .date,
-  .last-updated {
+  section {
     font-size: 0.85rem;
     font-weight: 500;
     color: ${({ theme }) => theme.accentColor};
+
+    display: flex;
+    gap: 1rem;
+    align-items: center;
   }
 
-  .javascript {
-    color: var(--js-theme);
+  .topic {
+    color: #d00000;
   }
 
-  .react {
-    color: var(--react-theme);
-  }
-
-  .css {
-    color: var(--css-theme);
+  .read-time {
+    color: #0a9396;
+    display: flex;
+    gap: 0.2rem;
+    align-items: center;
   }
 `;
 
@@ -141,6 +145,8 @@ const PostTemplate = ({ postData }) => {
   const { title, date, topic, content } = post;
   const { banner = {} } = post;
 
+  const estimatedReadTime = calcEstimatedReadTime(content.concat("", title));
+
   const fetchedDate = new Date(date);
   const formattedDate = fetchedDate.toLocaleDateString("en-US", {
     day: "numeric",
@@ -158,8 +164,14 @@ const PostTemplate = ({ postData }) => {
       <SinglePostSection initial={{ y: 50 }} animate={{ y: 0 }}>
         <PostHeader>
           <h2 className="title">{title}</h2>
-          <p className="date">{formattedDate}</p>
-          <p className={topic}>#{topic}</p>
+          <section>
+            <p className="date">{formattedDate}</p>
+            <p className="topic">#{topic}</p>
+            <p className="read-time">
+              <FiClock />
+              {estimatedReadTime} min read
+            </p>
+          </section>
         </PostHeader>
 
         {banner ? (

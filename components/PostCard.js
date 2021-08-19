@@ -2,6 +2,8 @@ import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
 import { motion } from "framer-motion";
+import calcEstimatedReadTime from "../utils/readTime";
+import { FiClock } from "react-icons/fi";
 
 const PostCardComponent = styled(motion.li)`
   width: clamp(22rem, 20vw, 25rem);
@@ -61,9 +63,16 @@ const PostCardComponent = styled(motion.li)`
       font-size: 0.85rem;
       font-weight: 500;
       color: ${({ theme }) => theme.accentColor};
-    }
-    .read-more-link {
       margin-left: auto;
+    }
+    .read-time {
+      display: flex;
+      align-items: center;
+      gap: 0.2rem;
+
+      font-size: 0.75rem;
+      font-weight: 500;
+      color: ${({ theme }) => theme.lightText};
     }
   }
 
@@ -97,7 +106,10 @@ const PostCardComponent = styled(motion.li)`
   }
 `;
 
-const PostCard = ({ index, title, slug, date, excerpt, topic }) => {
+const PostCard = ({ index, title, slug, date, excerpt, topic, content }) => {
+  const stringToRead = content.concat(" ", title);
+  const estimatedReadTime = calcEstimatedReadTime(stringToRead);
+
   return (
     <Link href={`/posts/${slug}`}>
       <PostCardComponent
@@ -121,6 +133,10 @@ const PostCard = ({ index, title, slug, date, excerpt, topic }) => {
         <div className="card-footer">
           <p className="topic" id={topic}>
             #{topic}
+          </p>
+          <p className="read-time">
+            <FiClock />
+            {estimatedReadTime} min read
           </p>
           <p className="read-more-link">Read More...</p>
         </div>
