@@ -2,8 +2,11 @@
 A resource reference blog for web developers. From concepts to tutorials to project walkthroughs, every resource at hand.
 
 ### Tech stack
-- NextJS
-- GraphCMS (for content management)
+- [NextJS](https://nextjs.org/) 😎 because it's just awesome
+- [GraphCMS](https://graphcms.com/) for content management
+- [Graphql](https://graphql.org/) for querying
+- [styled-components](https://styled-components.com/) to make it look pleasing
+- Hosted with [Vercel](https://vercel.com/)
 
 ## Goal 
 - Having a technical blog helps me keep track of my learning, and since our brains can only hold so much, revisiting well drafted posts serves as a decent revision tactic - to brush up concepts.
