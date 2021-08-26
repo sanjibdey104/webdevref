@@ -44,16 +44,23 @@ const PostHeader = styled.div`
   section {
     font-size: 0.85rem;
     font-weight: 500;
-    display: flex;
-    gap: 1rem;
-    align-items: center;
     color: var(--light-text);
-  }
-
-  .read-time {
     display: flex;
-    gap: 0.3rem;
-    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+
+    div {
+      display: flex;
+      gap: 1rem;
+
+      .read-time {
+        display: flex;
+        gap: 0.3rem;
+        align-items: center;
+        color: ${({ theme }) => theme.accentColor};
+      }
+    }
   }
 `;
 
@@ -79,11 +86,8 @@ const PostBody = styled.div`
   line-height: 1.6;
 
   a {
-    width: fit-content;
-    font-size: 1.1rem;
     font-weight: 500;
     color: ${({ theme }) => theme.accentColor};
-    border-bottom: 2px solid;
   }
 
   pre {
@@ -123,13 +127,17 @@ const PostTemplate = ({ postData }) => {
   }, []);
 
   const post = postData[0];
-  const { title, date, topic, content } = post;
+  const { title, date, topic, content, updatedAt } = post;
   const { banner = {} } = post;
 
   const estimatedReadTime = calcEstimatedReadTime(content.concat("", title));
 
-  const fetchedDate = new Date(date);
-  const formattedDate = fetchedDate.toLocaleDateString("en-US", {
+  const createdOnDate = new Date(date).toLocaleDateString("en-US", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+  const lastUpdatedOnDate = new Date(updatedAt).toLocaleDateString("en-US", {
     day: "numeric",
     month: "short",
     year: "numeric",
@@ -146,12 +154,15 @@ const PostTemplate = ({ postData }) => {
         <PostHeader>
           <h1 className="title">{title}</h1>
           <section>
-            <p className="date">{formattedDate}</p>
-            <p className="topic">#{topic}</p>
-            <p className="read-time">
-              <FaClock />
-              {estimatedReadTime} min read
-            </p>
+            <div>
+              <p className="created-on">{createdOnDate}</p>
+              <p className="topic">#{topic}</p>
+              <p className="read-time">
+                <FaClock />
+                {estimatedReadTime} min read
+              </p>
+            </div>
+            <p className="last-updated">last updated: {lastUpdatedOnDate}</p>
           </section>
         </PostHeader>
 
