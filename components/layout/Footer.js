@@ -44,11 +44,11 @@ const Footer = () => {
       <Attribution>
         Illustration by{" "}
         <a
-          href="https://icons8.com/illustrations/author/5f32934501d0360017af905d"
+          href="https://icons8.com/illustrations/author/60d4adbbe806b31fbdccd19c"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Polina Golubeva
+          Giulia Maidecchi
         </a>{" "}
         from{" "}
         <a

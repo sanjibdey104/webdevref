@@ -7,42 +7,27 @@ import Image from "next/image";
 
 const BlogIntro = styled.section`
   height: 30rem;
-  position: relative;
-
   display: flex;
   flex-direction: column;
   align-items: center;
 `;
 
-const HeroImage = styled.div`
-  width: clamp(20rem, 22vw, 25rem);
-`;
-
 const Description = styled.section`
   padding: 1rem;
   border-radius: 0.5rem;
-
-  font-size: 0.9rem;
-  transform: translateY(-10%);
-
-  background-color: ${({ theme }) => theme.backgroundColor};
   border-left: 3px solid ${({ theme }) => theme.accentColor};
   box-shadow: ${({ theme }) => theme.boxShadow};
+  background-color: ${({ theme }) => theme.surfaceElevation};
 
-  @media (max-width: 600px) {
-    span {
-      display: block;
-    }
-  }
-
-  h2 {
+  p {
+    font-size: 1.3rem;
     font-weight: 500;
   }
 
   span {
-    font-size: clamp(1.5rem, 8vw, 2rem);
     font-weight: 700;
-    color: ${({ theme }) => theme.fgBold};
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.accentColor};
   }
 `;
 
@@ -74,21 +59,19 @@ const Home = ({ featuredPostsData }) => {
   return (
     <>
       <BlogIntro>
-        <HeroImage>
-          <Image
-            src="/dizzy-education.png"
-            width={450}
-            height={255}
-            alt="flamenco hero image"
-          />
-        </HeroImage>
+        <Image
+          src="/jungle-remote-working.png"
+          width={320}
+          height={200}
+          alt="homepage banner"
+        />
 
         <Description>
-          <h2>
-            Welcome to <span>Web Dev Ref</span>
-          </h2>
-          <h2>A resource reference blog for</h2>
-          <h2>web developers</h2>
+          <p>
+            Welcome to <span>webdevref</span>
+          </p>
+          <p>A resource reference blog for</p>
+          <p>web developers</p>
         </Description>
       </BlogIntro>
 

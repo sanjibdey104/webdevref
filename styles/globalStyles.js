@@ -81,7 +81,7 @@ button {
     background: linear-gradient(to right, #4262ff, #01baef, #764ba2);
 }
 
-.all-posts-link, .all-topics-link {
+.all-posts-link {
     width: 11rem;
     margin: auto;
     border-radius: 0.5rem;
@@ -93,29 +93,32 @@ button {
     padding: 5px;
     border-left: 3px solid ${({ theme }) => theme.accentColor};
     box-shadow: ${({ theme }) => theme.boxShadow};
+    background-color: ${({ theme }) => theme.surfaceElevation};
 }
 `;
 
 export const lightTheme = {
   backgroundColor: "#f5f5f5",
+  surfaceElevation: "#f5f5f5",
   fgBold: "#212121",
   fgLight: "#424242",
   fgLighter: "#616161",
   fgLightest: "#adb5bd",
   accentColor: "#4262ff",
-  externalLink: "#4262ff",
-  boxShadow: "inset 0 0 8px rgba(0,0,0,0.2)",
+  accentColorLighter: "#4262ff1a",
+  boxShadow: "inset 0 0 3px rgba(0,0,0,0.15), 0 0 5px rgba(0,0,0,0.2)",
   mobileNavLink: "#ffffffda",
 };
 
 export const darkTheme = {
-  backgroundColor: "#151515",
+  backgroundColor: "#121212",
+  surfaceElevation: "#252628",
   fgBold: "#d3cecc",
   fgLight: "#d1d5db",
   fgLighter: "#ffffffb3",
   fgLightest: "#808080",
   accentColor: "#ca4860",
-  externalLink: "#3dffc5",
-  boxShadow: "0 0 8px #000",
+  accentColorLighter: "#ca48601a",
+  boxShadow: "0 0 8px rgba(0,0,0,0.75), 0 0 10px rgba(0,0,0,0.15)",
   mobileNavLink: "#151515",
 };

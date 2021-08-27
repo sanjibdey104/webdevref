@@ -11,8 +11,6 @@ import { FaClock } from "react-icons/fa";
 
 const SinglePostSection = styled.section`
   width: 70%;
-  margin: 3rem 0;
-
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -65,7 +63,7 @@ const PostHeader = styled.div`
 
 const PostBanner = styled.div`
   img {
-    box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+    box-shadow: ${({ theme }) => theme.boxShadow};
     border-radius: 0.5rem;
     width: 100%;
   }
@@ -83,6 +81,10 @@ const PostBody = styled.div`
   flex-direction: column;
   gap: 1.5rem;
   line-height: 1.6;
+
+  h2 {
+    margin-top: 1rem;
+  }
 
   a {
     font-weight: 500;
@@ -108,12 +110,10 @@ const PostBody = styled.div`
 
   blockquote {
     min-height: 3rem;
-    padding-left: 1rem;
-    margin: 1rem 0;
-    display: flex;
-    align-items: center;
+    padding: 0.85rem;
     font-style: italic;
     border-left: 5px solid ${({ theme }) => theme.accentColor};
+    background: ${({ theme }) => theme.accentColorLighter};
   }
 
   ul {

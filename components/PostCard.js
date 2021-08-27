@@ -5,7 +5,7 @@ import calcEstimatedReadTime from "../utils/readTime";
 import { FaClock } from "react-icons/fa";
 
 const PostCardComponent = styled.li`
-  width: clamp(22rem, 20vw, 25rem);
+  width: clamp(22rem, 25vw, 25rem);
   height: 12rem;
   cursor: pointer;
   position: relative;
@@ -14,6 +14,7 @@ const PostCardComponent = styled.li`
   border-top-left-radius: initial;
   padding: 0.5rem;
   box-shadow: ${({ theme }) => theme.boxShadow};
+  background-color: ${({ theme }) => theme.surfaceElevation};
 
   align-self: center;
   justify-self: center;
@@ -35,6 +36,7 @@ const PostCardComponent = styled.li`
       font-weight: 500;
       font-family: var(--font-secondary);
       color: ${({ theme }) => theme.fgBold};
+      color: ${({ theme }) => theme.accentColor};
     }
 
     .date {
@@ -112,33 +114,35 @@ const PostCardComponent = styled.li`
 `;
 
 const PostCard = (props) => {
-  const { index, title, slug, date, excerpt, topic, content } = props;
+  const { title, slug, date, excerpt, topic, content } = props;
   const stringToRead = content.concat(" ", title);
   const estimatedReadTime = calcEstimatedReadTime(stringToRead);
 
   return (
     <Link href={`/posts/${slug}`}>
-      <PostCardComponent>
-        <div className="card-header">
-          <h3 className="title">{title}</h3>
-          <p className="date">{date}</p>
-        </div>
+      <a aria-label="individual post link">
+        <PostCardComponent>
+          <div className="card-header">
+            <h3 className="title">{title}</h3>
+            <p className="date">{date}</p>
+          </div>
 
-        <div className="card-body">
-          <p className="excerpt">{excerpt}</p>
-        </div>
+          <div className="card-body">
+            <p className="excerpt">{excerpt}</p>
+          </div>
 
-        <div className="card-footer">
-          <p className="topic" id={topic}>
-            #{topic}
-          </p>
-          <p className="read-time">
-            <FaClock />
-            {estimatedReadTime} min read
-          </p>
-          <p className="read-more-link">Read More...</p>
-        </div>
-      </PostCardComponent>
+          <div className="card-footer">
+            <p className="topic" id={topic}>
+              #{topic}
+            </p>
+            <p className="read-time">
+              <FaClock />
+              {estimatedReadTime} min read
+            </p>
+            <p className="read-more-link">Read More...</p>
+          </div>
+        </PostCardComponent>
+      </a>
     </Link>
   );
 };

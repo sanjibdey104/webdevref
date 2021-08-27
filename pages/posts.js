@@ -21,12 +21,12 @@ const AllPostsSection = styled.section`
 
   .post-search {
     margin-bottom: 4rem;
-    width: 22rem;
+    width: clamp(20rem, 30vw, 25rem);
     position: relative;
 
     .search-bar {
       width: 100%;
-      height: 2rem;
+      height: 2.3rem;
       border: 0;
       outline: 0;
       border-radius: 5rem;
@@ -35,7 +35,7 @@ const AllPostsSection = styled.section`
       font-size: 1.1rem;
       font-weight: 500;
       color: ${({ theme }) => theme.fgLight};
-      background-color: ${({ theme }) => theme.backgroundColor};
+      background-color: ${({ theme }) => theme.surfaceElevation};
       border-left: 3px solid ${({ theme }) => theme.accentColor};
       box-shadow: ${({ theme }) => theme.boxShadow};
     }
