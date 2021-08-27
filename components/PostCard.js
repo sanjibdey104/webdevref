@@ -39,7 +39,7 @@ const PostCardComponent = styled.li`
 
     .date {
       font-size: 0.75rem;
-      color: ${({ theme }) => theme.fgLightest};
+      color: ${({ theme }) => theme.fgLighter};
     }
   }
 
@@ -73,7 +73,7 @@ const PostCardComponent = styled.li`
       align-items: center;
       gap: 0.3rem;
       font-size: 0.8rem;
-      color: ${({ theme }) => theme.fgLightest};
+      color: ${({ theme }) => theme.fgLighter};
     }
   }
 

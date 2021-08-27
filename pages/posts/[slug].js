@@ -43,7 +43,7 @@ const PostHeader = styled.div`
   section {
     font-size: 0.85rem;
     font-weight: 500;
-    color: ${({ theme }) => theme.fgLightest};
+    color: ${({ theme }) => theme.fgLighter};
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -74,7 +74,7 @@ const PostBanner = styled.div`
     margin-top: 0.5rem;
     text-align: right;
     font-size: 0.75rem;
-    color: ${({ theme }) => theme.fgLightest};
+    color: ${({ theme }) => theme.fgLighter};
   }
 `;
 
