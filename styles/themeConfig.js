@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 export const ThemePreference = () => {
-  const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("light");
 
   const setThemePreference = (mode) => {
     window.localStorage.setItem("themePref", mode);
