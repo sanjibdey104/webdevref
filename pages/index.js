@@ -1,12 +1,11 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { motion } from "framer-motion";
 import { getFeaturedPosts } from "../lib/data";
 import PostCard from "../components/PostCard";
 import Image from "next/image";
 
-const BlogIntro = styled(motion.section)`
+const BlogIntro = styled.section`
   height: 30rem;
   position: relative;
 
@@ -15,7 +14,7 @@ const BlogIntro = styled(motion.section)`
   align-items: center;
 `;
 
-const HeroImage = styled(motion.div)`
+const HeroImage = styled.div`
   width: clamp(20rem, 22vw, 25rem);
 `;
 
@@ -43,7 +42,7 @@ const Description = styled.section`
   span {
     font-size: clamp(1.5rem, 8vw, 2rem);
     font-weight: 700;
-    color: ${({ theme }) => theme.lgText};
+    color: ${({ theme }) => theme.fgBold};
   }
 `;
 
@@ -75,11 +74,7 @@ const Home = ({ featuredPostsData }) => {
   return (
     <>
       <BlogIntro>
-        <HeroImage
-          initial={{ y: -100, opacity: 0 }}
-          animate={{ y: 0, opacity: 1 }}
-          transition={{ delay: 1 }}
-        >
+        <HeroImage>
           <Image
             src="/dizzy-education.png"
             width={450}

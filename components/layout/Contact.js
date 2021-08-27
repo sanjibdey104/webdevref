@@ -19,20 +19,13 @@ const ContactSection = styled.section`
   svg {
     width: 1.2rem;
     height: 1.2rem;
+    font-size: 1.2rem;
     color: ${({ theme }) => theme.accentColor};
     transition: all 150ms ease-in-out;
   }
 
   li:hover svg {
-    color: ${({ theme }) => theme.textColor};
-  }
-
-  @media (max-width: 600px) {
-    width: 100%;
-    h2 {
-      text-align: center;
-      font-size: 1.3rem;
-    }
+    color: ${({ theme }) => theme.fgLight};
   }
 `;
 
@@ -45,6 +38,7 @@ const Contact = () => {
             href="https://github.com/sanjibdey104"
             rel="noreferrer"
             target="_blank"
+            aria-label="Github"
           >
             <FiGithub />
           </a>
@@ -54,6 +48,7 @@ const Contact = () => {
             href="https://www.linkedin.com/in/sanjib-kumar-dey-359984130/"
             rel="noreferrer"
             target="_blank"
+            aria-label="Linkedin"
           >
             <FiLinkedin />
           </a>
@@ -63,12 +58,13 @@ const Contact = () => {
             href="https://twitter.com/Sanjib_104"
             rel="noreferrer"
             target="_blank"
+            aria-label="Twitter"
           >
             <FiTwitter />
           </a>
         </li>
         <li>
-          <a className="mail" href="mailto:sanjibdey.dey4@gmail.com">
+          <a href="mailto:sanjibdey.dey4@gmail.com" aria-label="Email">
             <FiMail />
           </a>
         </li>

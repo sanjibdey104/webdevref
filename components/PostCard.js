@@ -1,11 +1,10 @@
 import React from "react";
 import styled from "styled-components";
 import Link from "next/link";
-import { motion } from "framer-motion";
 import calcEstimatedReadTime from "../utils/readTime";
 import { FaClock } from "react-icons/fa";
 
-const PostCardComponent = styled(motion.li)`
+const PostCardComponent = styled.li`
   width: clamp(22rem, 20vw, 25rem);
   height: 12rem;
   cursor: pointer;
@@ -24,18 +23,23 @@ const PostCardComponent = styled(motion.li)`
   justify-content: space-between;
   gap: 1rem;
 
+  &:hover .card-footer .read-more-link,
+  &:focus .card-footer .read-more-link {
+    transform: translateY(0);
+  }
+
   .card-header {
     .title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
       font-weight: 500;
       font-family: var(--font-secondary);
-      color: ${({ theme }) => theme.lgText};
+      color: ${({ theme }) => theme.fgBold};
     }
 
     .date {
       font-size: 0.75rem;
-      color: var(--light-text);
+      color: ${({ theme }) => theme.fgLightest};
     }
   }
 
@@ -49,19 +53,27 @@ const PostCardComponent = styled(motion.li)`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    overflow: hidden;
 
     .read-more-link {
       font-size: 0.85rem;
       font-weight: 500;
       color: ${({ theme }) => theme.accentColor};
       margin-left: auto;
+      transform: translateY(100%);
+      transition: transform 200ms ease-in-out;
+
+      @media screen and (max-width: 768px) {
+        transform: translateY(0);
+      }
     }
+
     .read-time {
       display: flex;
       align-items: center;
       gap: 0.3rem;
       font-size: 0.8rem;
-      color: var(--light-text);
+      color: ${({ theme }) => theme.fgLightest};
     }
   }
 
@@ -106,15 +118,7 @@ const PostCard = (props) => {
 
   return (
     <Link href={`/posts/${slug}`}>
-      <PostCardComponent
-        variants={{
-          hidden: { y: 50 },
-          visible: (index) => ({ y: 0, transition: { delay: index * 0.05 } }),
-        }}
-        initial="hidden"
-        animate="visible"
-        custom={index}
-      >
+      <PostCardComponent>
         <div className="card-header">
           <h3 className="title">{title}</h3>
           <p className="date">{date}</p>

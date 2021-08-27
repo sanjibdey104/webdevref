@@ -3,15 +3,14 @@ import Link from "next/link";
 import styled from "styled-components";
 import { getPost, getPostSlugs } from "../../lib/data";
 import { ScrollHandlerLogic } from "../../components/post/ScrollHandler";
-import { motion } from "framer-motion";
 import ReactMarkdown from "react-markdown";
 import CustomLink from "../../components/post/CustomLink";
 import CodeBlock from "../../components/post/CodeBlock";
 import calcEstimatedReadTime from "../../utils/readTime";
 import { FaClock } from "react-icons/fa";
 
-const SinglePostSection = styled(motion.section)`
-  width: 65%;
+const SinglePostSection = styled.section`
+  width: 70%;
   margin: 3rem 0;
 
   display: flex;
@@ -35,7 +34,7 @@ const PostHeader = styled.div`
   padding-bottom: 0.5rem;
 
   .title {
-    color: ${({ theme }) => theme.lgText};
+    color: ${({ theme }) => theme.fgBold};
     font-family: var(--font-secondary);
     margin-bottom: 1rem;
     font-size: 2.5rem;
@@ -44,7 +43,7 @@ const PostHeader = styled.div`
   section {
     font-size: 0.85rem;
     font-weight: 500;
-    color: var(--light-text);
+    color: ${({ theme }) => theme.fgLightest};
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -75,7 +74,7 @@ const PostBanner = styled.div`
     margin-top: 0.5rem;
     text-align: right;
     font-size: 0.75rem;
-    color: var(--light-text);
+    color: ${({ theme }) => theme.fgLightest};
   }
 `;
 
@@ -88,6 +87,11 @@ const PostBody = styled.div`
   a {
     font-weight: 500;
     color: ${({ theme }) => theme.accentColor};
+
+    &:hover,
+    &:focus {
+      text-decoration: underline;
+    }
   }
 
   pre {
@@ -150,7 +154,7 @@ const PostTemplate = ({ postData }) => {
         style={{ width: `${scrollIndicatorWidth}%` }}
       />
 
-      <SinglePostSection initial={{ y: 50 }} animate={{ y: 0 }}>
+      <SinglePostSection>
         <PostHeader>
           <h1 className="title">{title}</h1>
           <section>

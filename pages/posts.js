@@ -16,26 +16,25 @@ const AllPostsSection = styled.section`
 
   h2 {
     font-size: 1.5rem;
-    color: ${({ theme }) => theme.lgText};
+    color: ${({ theme }) => theme.fgBold};
   }
 
   .post-search {
     margin-bottom: 4rem;
-    width: 20rem;
+    width: 22rem;
     position: relative;
 
     .search-bar {
       width: 100%;
+      height: 2rem;
       border: 0;
       outline: 0;
-      border-radius: 1rem;
-      height: 1.85em;
+      border-radius: 5rem;
       padding: 0.2rem 1rem;
 
       font-size: 1.1rem;
       font-weight: 500;
-      font-family: var(--font-primary);
-      color: ${({ theme }) => theme.smText};
+      color: ${({ theme }) => theme.fgLight};
       background-color: ${({ theme }) => theme.backgroundColor};
       border-left: 3px solid ${({ theme }) => theme.accentColor};
       box-shadow: ${({ theme }) => theme.boxShadow};
@@ -80,7 +79,7 @@ const Posts = (props) => {
 
   return (
     <AllPostsSection>
-      <h2>all the posts</h2>
+      <h2>all posts</h2>
 
       <div className="post-search">
         <input

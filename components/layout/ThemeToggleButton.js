@@ -5,13 +5,12 @@ import { ThemeContext } from "../../context/ThemeContext";
 
 const ThemeSwitch = styled.button`
   border: 0;
-  background-color: transparent;
+  display: block;
   cursor: pointer;
 
   svg {
-    width: 1.5rem;
-    height: 1.5rem;
-    color: ${({ theme }) => theme.smText};
+    font-size: 1.5rem;
+    color: ${({ theme }) => theme.fgLight};
 
     @media (max-width: 600px) {
       color: ${({ theme }) => theme.mobileNavLink};
@@ -23,7 +22,7 @@ export const ThemeToggleButton = () => {
   const { theme, toggleTheme } = useContext(ThemeContext);
 
   return (
-    <ThemeSwitch onClick={toggleTheme}>
+    <ThemeSwitch onClick={toggleTheme} aria-label="Theme Toggle Button">
       {theme === "dark" ? <FiSun /> : <FiMoon />}
     </ThemeSwitch>
   );

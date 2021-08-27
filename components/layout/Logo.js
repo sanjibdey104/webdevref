@@ -10,23 +10,27 @@ const StyledLogo = styled.div`
   width: 4.4rem;
   height: 4.4rem;
   padding: 0.5rem;
+  border-bottom-left-radius: 0.5rem;
+  border-bottom-right-radius: 0.5rem;
 
   color: black;
   font-size: 0.9rem;
   font-weight: 700;
   line-height: 1;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+  box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: var(--logo-color);
 `;
 
 const Logo = () => {
   return (
     <Link href="/">
-      <StyledLogo>
-        <span>&lt; Web</span>
-        <span>Dev</span>
-        <span>Ref /&gt;</span>
-      </StyledLogo>
+      <a aria-label="logo">
+        <StyledLogo>
+          <span>&lt; Web</span>
+          <span>Dev</span>
+          <span>Ref /&gt;</span>
+        </StyledLogo>
+      </a>
     </Link>
   );
 };

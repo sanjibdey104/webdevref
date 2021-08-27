@@ -16,7 +16,7 @@ const Nav = styled.nav`
     bottom: 0.5rem;
     z-index: 10;
 
-    border-radius: 1rem;
+    border-radius: 2rem;
     background-color: ${({ theme }) => theme.accentColor};
     color: ${({ theme }) => theme.mobileNavLink};
 
@@ -38,35 +38,22 @@ const NavLinks = styled.ul`
   gap: 2rem;
 
   li {
-    font-size: 1rem;
     position: relative;
     font-weight: 500;
     cursor: pointer;
 
-    &::before {
-      content: "/";
-      display: inline-block;
-
-      width: 5px;
+    &:hover,
+    &:active,
+    &:focus {
       color: ${({ theme }) => theme.accentColor};
 
-      margin-right: 0.2rem;
-      transform: scale(0);
-      transition: transform 150ms ease-in-out;
-    }
-
-    &:hover::before {
-      transform: scale(1.5);
+      svg {
+        color: ${({ theme }) => theme.accentColor};
+      }
     }
 
     @media (max-width: 600px) {
-      font-size: 1.1rem;
-
-      &::before {
-        display: inline;
-        transform: scale(1);
-        color: ${({ theme }) => theme.mobileNavLink};
-      }
+      font-size: 1.2rem;
     }
   }
 `;
@@ -108,22 +95,24 @@ const Navbar = () => {
   return (
     <Nav id={navDisplay ? "open" : ""}>
       <NavLinks>
-        <Link href="/">
-          <li>
+        <li>
+          <Link href="/">
             <a>home</a>
-          </li>
-        </Link>
-        <Link href="/posts">
-          <li>
+          </Link>
+        </li>
+        <li>
+          <Link href="/posts">
             <a>posts</a>
-          </li>
-        </Link>
-        <Link href="/about">
-          <li>
+          </Link>
+        </li>
+        <li>
+          <Link href="/about">
             <a>about</a>
-          </li>
-        </Link>
-        <ThemeToggleButton />
+          </Link>
+        </li>
+        <li id="theme-toogle-btn">
+          <ThemeToggleButton />
+        </li>
       </NavLinks>
 
       <NavToggleButton onClick={() => toggleNavDisplay()}>

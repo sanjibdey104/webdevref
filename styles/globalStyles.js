@@ -5,13 +5,11 @@ export const GlobalStyles = createGlobalStyle`
 :root {
     --font-primary: 'Montserrat', sans-serif;
     --font-secondary: 'Playfair Display', serif;
-    --font-for-fun: 'Indie Flower', cursive;;
     --logo-color: #f7e019;
     --js-theme: #f0db4f;
-    --react-theme: #61dafb;
     --css-theme: #e31b5f;
+    --react-theme: #61dafb;
     --offtech-theme: #99d98c;
-    --light-text: #808080;
 }
 
 html {
@@ -30,12 +28,12 @@ body {
     height: 100vh;
     line-height: 1.4;
     background-color: ${({ theme }) => theme.backgroundColor};
-    color: ${({ theme }) => theme.smText};
+    color: ${({ theme }) => theme.fgLight};
     font-family: var(--font-primary);
 }
 
 .container {
-    width: 80%;
+    width: 75%;
     min-height: 100vh;
     margin: 0 auto;
     position: relative;
@@ -58,6 +56,10 @@ ul {
 a {
     text-decoration: none;
     color: inherit;
+}
+
+button, input, textarea {
+    font-family: var(--font-primary);
 }
 
 img, svg {
@@ -96,9 +98,10 @@ button {
 
 export const lightTheme = {
   backgroundColor: "#f5f5f5",
-  lgText: "#250902",
-  smText: "#151515",
-  lightText: "#4d4d4d",
+  fgBold: "#212121",
+  fgLight: "#424242",
+  fgLighter: "#616161",
+  fgLightest: "#adb5bd",
   accentColor: "#4262ff",
   externalLink: "#4262ff",
   boxShadow: "inset 0 0 8px rgba(0,0,0,0.2)",
@@ -107,10 +110,11 @@ export const lightTheme = {
 
 export const darkTheme = {
   backgroundColor: "#151515",
-  lgText: "#d3cecc",
-  smText: "#d1d5db",
-  lightText: "#808080",
-  accentColor: "#a1b567",
+  fgBold: "#d3cecc",
+  fgLight: "#d1d5db",
+  fgLighter: "#ffffffb3",
+  fgLightest: "#808080",
+  accentColor: "#ca4860",
   externalLink: "#3dffc5",
   boxShadow: "0 0 8px #000",
   mobileNavLink: "#151515",
