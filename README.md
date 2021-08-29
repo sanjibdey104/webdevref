@@ -8,6 +8,9 @@ A resource reference blog for web developers. From concepts to tutorials to proj
 - [styled-components](https://styled-components.com/) to make it look pleasing
 - Hosted with [Vercel](https://vercel.com/)
 
+### Mockup 
+![website mockup](assets/mockup/webdevref_mockup.png)
+
 ## Goal 
 - Having a technical blog helps me keep track of my learning, and since our brains can only hold so much, revisiting well drafted posts serves as a decent revision tactic - to brush up concepts.
 - Constant updates and changes in tech pushes me to keep the blogs up-to date, thus keeping me responsible.
