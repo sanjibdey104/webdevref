@@ -120,6 +120,10 @@ const PostBody = styled.div`
     list-style-type: disc;
     padding: 0 1rem;
   }
+
+  img {
+    max-width: 100%;
+  }
 `;
 
 const PostTemplate = ({ postData }) => {
