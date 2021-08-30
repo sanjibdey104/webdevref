@@ -9,7 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     --js-theme: #f0db4f;
     --css-theme: #e31b5f;
     --react-theme: #61dafb;
-    --nextjs-theme: #cbb2fe;
+    --nextjs-theme: #ffaa00;
     --offtech-theme: #99d98c;
 }
 
@@ -100,7 +100,7 @@ button {
 
 export const lightTheme = {
   backgroundColor: "#f5f5f5",
-  surfaceElevation: "#f5f5f5",
+  surfaceElevation: "#f2f2f2",
   fgBold: "#212121",
   fgLight: "#424242",
   fgLighter: "#616161",

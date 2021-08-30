@@ -13,6 +13,7 @@ const PostCardComponent = styled.li`
   border-radius: 0.5rem;
   border-top-left-radius: initial;
   padding: 0.5rem;
+  border-right: 3px solid ${({ theme }) => theme.accentColor};
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.surfaceElevation};
 
@@ -31,7 +32,7 @@ const PostCardComponent = styled.li`
 
   .card-header {
     .title {
-      font-size: 1.3rem;
+      font-size: 1.2rem;
       margin-bottom: 0.5rem;
       font-weight: 500;
       font-family: var(--font-secondary);
