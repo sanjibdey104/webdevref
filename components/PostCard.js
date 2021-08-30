@@ -108,6 +108,10 @@ const PostCardComponent = styled.li`
     background-color: var(--react-theme);
   }
 
+  #nextjs {
+    background-color: var(--nextjs-theme);
+  }
+
   #offtech {
     background-color: var(--offtech-theme);
   }

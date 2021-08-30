@@ -9,6 +9,7 @@ export const GlobalStyles = createGlobalStyle`
     --js-theme: #f0db4f;
     --css-theme: #e31b5f;
     --react-theme: #61dafb;
+    --nextjs-theme: #cbb2fe;
     --offtech-theme: #99d98c;
 }
 
