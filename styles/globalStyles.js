@@ -35,8 +35,9 @@ body {
 
 .container {
     width: 75%;
-    min-height: 100vh;
     margin: 0 auto;
+    max-width: 1100px;
+    min-height: 100vh;
     position: relative;
 
     display: flex;
