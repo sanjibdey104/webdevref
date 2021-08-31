@@ -4,16 +4,16 @@ import styled from "styled-components";
 const AboutSection = styled.section`
   width: 60%;
   margin: 0 auto;
-  margin-bottom: 1rem;
 
   @media (max-width: 600px) {
     width: 100%;
   }
 
   h2 {
-    font-family: var(--font-secondary);
     text-align: center;
     margin-bottom: 2rem;
+    font-family: var(--font-secondary);
+    color: ${({ theme }) => theme.fgBold};
   }
 
   p {

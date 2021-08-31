@@ -12,8 +12,8 @@ const AllPostsSection = styled.section`
   gap: 3rem;
 
   h2 {
-    font-size: 1.5rem;
     color: ${({ theme }) => theme.fgBold};
+    font-family: var(--font-secondary);
   }
 
   .post-search {
