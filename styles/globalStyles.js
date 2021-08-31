@@ -44,7 +44,7 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    gap: 3rem;
+    gap: 4rem;
 
     @media (max-width: 768px) {
         width: 90%;

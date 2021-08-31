@@ -6,9 +6,6 @@ import { FiSearch } from "react-icons/fi";
 
 const AllPostsSection = styled.section`
   width: 90%;
-  margin: 2rem 0;
-  margin-bottom: 5rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;
