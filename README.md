@@ -1,5 +1,5 @@
 # WebDevRef
-A resource reference blog for web developers. From concepts to tutorials to project walkthroughs, every resource at hand.
+A resource reference blog for web developers. From concepts, tutorials to project walkthroughs, every resource at hand. Documenting my dev learnings and journey.
 
 ### Tech stack
 - [NextJS](https://nextjs.org/) 😎 because it's just awesome
