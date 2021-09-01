@@ -11,28 +11,21 @@ const FooterComponent = styled.footer`
   display: flex;
   flex-direction: column;
   align-items: center;
-
-  p {
-    display: flex;
-    align-items: center;
-
-    svg {
-      display: inline;
-      font-size: 1.1rem;
-      margin-left: 0.3rem;
-      align-self: center;
-    }
-  }
-`;
-
-const Attribution = styled.section`
-  display: flex;
   gap: 0.3rem;
-  margin-bottom: 0.2rem;
+
+  #illustration-attr {
+    display: flex;
+    gap: 0.3rem;
+    margin-bottom: 0.2rem;
+  }
 
   a {
     color: ${({ theme }) => theme.accentColor};
-    font-weight: bolder;
+    font-weight: 500;
+
+    &:hover {
+      color: ${({ theme }) => theme.fgBold};
+    }
   }
 `;
 
@@ -41,7 +34,24 @@ const Footer = () => {
     <FooterComponent>
       <Contact />
 
-      <Attribution>
+      <p>&copy; 2021 WebDevRef.</p>
+
+      <p id="dev-attr">
+        Powered by:{" "}
+        <a href="https://nextjs.org/" target="_blank" rel="noreferrer">
+          Next.js
+        </a>
+        ,{" "}
+        <a href="https://graphcms.com/" target="_blank" rel="noreferrer">
+          GraphCMS
+        </a>
+        ,{" "}
+        <a href="https://vercel.com/" target="_blank" rel="noreferrer">
+          Vercel
+        </a>
+      </p>
+
+      <p id="illustration-attr">
         Illustration by{" "}
         <a
           href="https://icons8.com/illustrations/author/60d4adbbe806b31fbdccd19c"
@@ -58,11 +68,6 @@ const Footer = () => {
         >
           Ouch!
         </a>
-      </Attribution>
-
-      <p>
-        &copy; 2021 WebDevRef. &nbsp; Built with <SiNextDotJs />
-        extJS
       </p>
     </FooterComponent>
   );
