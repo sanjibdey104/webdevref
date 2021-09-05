@@ -82,8 +82,9 @@ const PostBody = styled.div`
   gap: 1.5rem;
   line-height: 1.6;
 
-  h2 {
-    margin-top: 1rem;
+  h2,
+  h3 {
+    margin-top: 1.2rem;
   }
 
   a {
@@ -118,7 +119,6 @@ const PostBody = styled.div`
 
   ul {
     list-style-type: disc;
-    padding: 0 1rem;
   }
 
   img {
