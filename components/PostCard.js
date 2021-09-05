@@ -6,7 +6,7 @@ import { FaClock } from "react-icons/fa";
 
 const PostCardComponent = styled.li`
   width: clamp(22rem, 25vw, 25rem);
-  height: 12rem;
+  height: 13rem;
   cursor: pointer;
   position: relative;
 
