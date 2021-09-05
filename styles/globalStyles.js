@@ -108,7 +108,7 @@ export const lightTheme = {
   fgLightest: "#adb5bd",
   accentColor: "#4262ff",
   accentColorLighter: "#4262ff1a",
-  boxShadow: "inset 0 0 3px rgba(0,0,0,0.15), 0 0 5px rgba(0,0,0,0.2)",
+  boxShadow: "0 0 3px rgba(0,0,0,0.15), 0 0 5px rgba(0,0,0,0.15)",
   mobileNavLink: "#ffffffda",
 };
 
