@@ -4,7 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 
 :root {
     --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Playfair Display', serif;
+    --font-secondary: 'Cormorant Garamond', serif;
     --logo-color: #f7e019;
     --js-theme: #f0db4f;
     --css-theme: #e31b5f;

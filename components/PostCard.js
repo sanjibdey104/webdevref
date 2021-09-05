@@ -32,12 +32,11 @@ const PostCardComponent = styled.li`
 
   .card-header {
     .title {
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       margin-bottom: 0.5rem;
-      font-weight: 500;
+      font-weight: 600;
       font-family: var(--font-secondary);
       color: ${({ theme }) => theme.fgBold};
-      color: ${({ theme }) => theme.accentColor};
     }
 
     .date {
