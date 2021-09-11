@@ -28,7 +28,7 @@ export default function Seo({ postData }) {
       twitter={{
         handle: "@Sanjib_104",
         site: "webdevref.vercel.app",
-        cardType: "summary",
+        cardType: "summary_large_image",
       }}
     />
   );
