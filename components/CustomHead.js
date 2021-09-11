@@ -1,10 +1,10 @@
 import React from "react";
 import Head from "next/head";
 
-const CustomHead = () => {
+const CustomHead = ({ pageTitle }) => {
   return (
     <Head>
-      <title>WevDevRef</title>
+      <title>{pageTitle}</title>
       <meta
         name="description"
         content="a resource reference blog for web developers"

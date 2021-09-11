@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import CustomHead from "../components/CustomHead";
 
 const AboutSection = styled.section`
   width: 60%;
@@ -30,34 +31,38 @@ const AboutSection = styled.section`
 
 const About = () => {
   return (
-    <AboutSection>
-      <h2>motivation behind the blog</h2>
+    <>
+      <CustomHead pageTitle="About the blog" />
+      <AboutSection>
+        <h2>motivation behind the blog</h2>
 
-      <div className="about">
-        <p>
-          For a beginner, self-taught web developer the overwhelming aspect of
-          the learning curve is the huge assortment of technologies to start
-          with. Being one such developer myself, I've had my fair share of
-          eagerness and confusion. But, that is part of the process.
-        </p>
-        <blockquote>
-          Learning by sharing is the gospel of honest growth.
-        </blockquote>
-        <p>
-          The goal was to have a space to help keep track of my learnings,
-          document it and maybe help others white I'm at it.
-        </p>
-        <p>
-          Building the blog from scratch, not only taught me about new tech and
-          tools, but serves as as decent side project, plus as an added bonus,
-          logging and revisiting self drafted posts serves as a sweet revision
-          tactic as well - to brush up and retain concepts.
-        </p>
-        <p>
-          This is my token of contribution to the developer community out there.
-        </p>
-      </div>
-    </AboutSection>
+        <div className="about">
+          <p>
+            For a beginner, self-taught web developer the overwhelming aspect of
+            the learning curve is the huge assortment of technologies to start
+            with. Being one such developer myself, I've had my fair share of
+            eagerness and confusion. But, that is part of the process.
+          </p>
+          <blockquote>
+            Learning by sharing is the gospel of honest growth.
+          </blockquote>
+          <p>
+            The goal was to have a space to help keep track of my learnings,
+            document it and maybe help others white I'm at it.
+          </p>
+          <p>
+            Building the blog from scratch, not only taught me about new tech
+            and tools, but serves as as decent side project, plus as an added
+            bonus, logging and revisiting self drafted posts serves as a sweet
+            revision tactic as well - to brush up and retain concepts.
+          </p>
+          <p>
+            This is my token of contribution to the developer community out
+            there.
+          </p>
+        </div>
+      </AboutSection>
+    </>
   );
 };
 

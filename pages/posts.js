@@ -3,6 +3,7 @@ import styled from "styled-components";
 import PostCard from "../components/PostCard";
 import { getPosts } from "../lib/data";
 import { FiSearch } from "react-icons/fi";
+import CustomHead from "../components/CustomHead";
 
 const AllPostsSection = styled.section`
   width: 90%;
@@ -75,31 +76,34 @@ const Posts = (props) => {
   });
 
   return (
-    <AllPostsSection>
-      <h2>all posts</h2>
+    <>
+      <CustomHead pageTitle="All posts" />
+      <AllPostsSection>
+        <h2>all posts</h2>
 
-      <div className="post-search">
-        <input
-          type="text"
-          className="search-bar"
-          placeholder="search for a post..."
-          value={searchValue}
-          onChange={(e) => setSearchValue(e.target.value)}
-        />
-        <button className="search-icon">
-          <FiSearch />
-        </button>
-      </div>
+        <div className="post-search">
+          <input
+            type="text"
+            className="search-bar"
+            placeholder="search for a post..."
+            value={searchValue}
+            onChange={(e) => setSearchValue(e.target.value)}
+          />
+          <button className="search-icon">
+            <FiSearch />
+          </button>
+        </div>
 
-      <ul className="post-list">
-        {!filteredPosts.length
-          ? "No Posts found"
-          : filteredPosts.map((post, index) => {
-              const { id } = post;
-              return <PostCard index={index} key={id} {...post} />;
-            })}
-      </ul>
-    </AllPostsSection>
+        <ul className="post-list">
+          {!filteredPosts.length
+            ? "No Posts found"
+            : filteredPosts.map((post, index) => {
+                const { id } = post;
+                return <PostCard index={index} key={id} {...post} />;
+              })}
+        </ul>
+      </AllPostsSection>
+    </>
   );
 };
 

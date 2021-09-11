@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { getFeaturedPosts } from "../lib/data";
 import PostCard from "../components/PostCard";
 import Image from "next/image";
+import CustomHead from "../components/CustomHead";
 
 const BlogIntro = styled.section`
   height: 30rem;
@@ -58,6 +59,7 @@ const Home = ({ featuredPostsData }) => {
 
   return (
     <>
+      <CustomHead pageTitle="WebDevRef" />
       <BlogIntro>
         <Image
           src="/jungle-remote-working.png"
