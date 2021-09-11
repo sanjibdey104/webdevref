@@ -17,7 +17,6 @@ const Layout = ({ children }) => {
 
   return (
     <>
-      <CustomHead />
       <NavbarDisplayContext.Provider
         value={{ navDisplay: navDisplay, toggleNavDisplay: toggleNavDisplay }}
       >

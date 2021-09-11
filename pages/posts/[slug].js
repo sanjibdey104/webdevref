@@ -9,6 +9,7 @@ import CodeBlock from "../../components/post/CodeBlock";
 import calcEstimatedReadTime from "../../utils/readTime";
 import { FaClock } from "react-icons/fa";
 import CustomHead from "../../components/CustomHead";
+import Seo from "../../components/Seo";
 
 const SinglePostSection = styled.section`
   width: 70%;
@@ -155,6 +156,7 @@ const PostTemplate = ({ postData }) => {
   return (
     <>
       <CustomHead pageTitle={title} />
+      <Seo postData={post} />
       <div
         className="scroll-tracker"
         style={{ width: `${scrollIndicatorWidth}%` }}
