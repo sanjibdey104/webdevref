@@ -10,6 +10,7 @@ import calcEstimatedReadTime from "../../utils/readTime";
 import { FaClock } from "react-icons/fa";
 import CustomHead from "../../components/CustomHead";
 import Seo from "../../components/Seo";
+import Comments from "../../components/Comments";
 
 const SinglePostSection = styled.section`
   width: 70%;
@@ -199,6 +200,8 @@ const PostTemplate = ({ postData }) => {
           />
         </PostBody>
       </SinglePostSection>
+
+      <Comments />
 
       <Link href="/posts">
         <a className="all-posts-link">Go to all posts...</a>
