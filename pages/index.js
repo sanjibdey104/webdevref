@@ -57,6 +57,12 @@ const FeaturePostsSection = styled.section`
 const Home = ({ featuredPostsData }) => {
   const { posts } = featuredPostsData;
 
+  let sortedPosts = posts.slice().sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+
   return (
     <>
       <CustomHead pageTitle="WebDevRef" />
@@ -81,7 +87,7 @@ const Home = ({ featuredPostsData }) => {
         <h2>featured posts</h2>
 
         <ul className="post-list">
-          {posts.map((post) => {
+          {sortedPosts.map((post) => {
             const { id } = post;
             return <PostCard key={id} {...post} />;
           })}

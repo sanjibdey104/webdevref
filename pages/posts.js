@@ -71,7 +71,13 @@ const Posts = (props) => {
   const { posts } = postsData;
   const [searchValue, setSearchValue] = useState("");
 
-  let filteredPosts = posts.filter((post) => {
+  let sortedPosts = posts.slice().sort((a, b) => {
+    const dateA = new Date(a.date);
+    const dateB = new Date(b.date);
+    return dateB - dateA;
+  });
+
+  let filteredPosts = sortedPosts.filter((post) => {
     return post.title.toLowerCase().includes(searchValue.toLowerCase());
   });
 
