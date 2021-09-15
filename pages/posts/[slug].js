@@ -114,6 +114,7 @@ const PostBody = styled.div`
 
   blockquote {
     min-height: 3rem;
+    margin: 1rem 0;
     padding: 0.85rem;
     font-style: italic;
     border-left: 5px solid ${({ theme }) => theme.accentColor};
