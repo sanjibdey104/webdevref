@@ -53,6 +53,7 @@ body {
 
 ul {
     list-style: none;
+    list-style-position: inside;
 }
 
 a {
