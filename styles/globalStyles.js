@@ -53,6 +53,9 @@ body {
 
 ul {
     list-style: none;
+}
+
+ul,ol {
     list-style-position: inside;
 }
 
