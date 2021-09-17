@@ -3,7 +3,6 @@ import Link from "next/link";
 import styled from "styled-components";
 import { getPost, getPostSlugs } from "../../lib/data";
 import ReactMarkdown from "react-markdown";
-import { ScrollHandlerLogic } from "../../components/postPage/ScrollHandler";
 import CustomLink from "../../components/postPage/CustomLink";
 import CodeBlock from "../../components/postPage/CodeBlock";
 import calcEstimatedReadTime from "../../utils/readTime";
@@ -11,6 +10,7 @@ import { FaClock } from "react-icons/fa";
 import CustomHead from "../../components/CustomHead";
 import Seo from "../../components/Seo";
 import Comments from "../../components/Comments";
+import { ScrollHandlerLogic } from "../../components/postPage/ScrollHandler";
 
 const SinglePostSection = styled.section`
   width: 70%;
@@ -82,7 +82,7 @@ const PostBanner = styled.div`
 const PostBody = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: 1.2rem;
   line-height: 1.6;
 
   h2,

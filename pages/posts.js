@@ -85,7 +85,7 @@ const Posts = (props) => {
     <>
       <CustomHead pageTitle="All posts" />
       <AllPostsSection>
-        <h2>all posts</h2>
+        <h2>🤟 all posts</h2>
 
         <div className="post-search">
           <input

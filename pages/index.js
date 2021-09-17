@@ -20,6 +20,7 @@ const BlogIntro = styled.section`
 
     .foreground {
       background-image: linear-gradient(92deg, #f35626, #feab3a);
+      background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       animation: hueFade 20s linear infinite;

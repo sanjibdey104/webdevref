@@ -34,7 +34,7 @@ const About = () => {
     <>
       <CustomHead pageTitle="About the blog" />
       <AboutSection>
-        <h2>motivation behind the blog</h2>
+        <h2>💪 motivation behind the blog</h2>
 
         <div className="about">
           <p>
