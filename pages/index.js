@@ -3,32 +3,36 @@ import React from "react";
 import styled from "styled-components";
 import { getFeaturedPosts } from "../lib/data";
 import PostCard from "../components/PostCard";
-import Image from "next/image";
 import CustomHead from "../components/CustomHead";
 
 const BlogIntro = styled.section`
-  height: 30rem;
+  width: 100%;
+  margin: 0 auto;
+  min-height: 30rem;
+
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-`;
 
-const Description = styled.section`
-  padding: 1rem;
-  border-radius: 0.5rem;
-  border-left: 3px solid ${({ theme }) => theme.accentColor};
-  box-shadow: ${({ theme }) => theme.boxShadow};
-  background-color: ${({ theme }) => theme.surfaceElevation};
+  .intro {
+    font-size: clamp(2.85rem, 4vw, 4rem);
 
-  p {
-    font-size: 1.3rem;
-    font-weight: 500;
-  }
+    .foreground {
+      background-image: linear-gradient(92deg, #f35626, #feab3a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: hueFade 20s linear infinite;
 
-  span {
-    font-weight: 700;
-    font-size: 1.5rem;
-    color: ${({ theme }) => theme.accentColor};
+      @keyframes hueFade {
+        from {
+          -webkit-filter: hue-rotate(0deg);
+        }
+        to {
+          -webkit-filter: hue-rotate(-360deg);
+        }
+      }
+    }
   }
 `;
 
@@ -42,7 +46,8 @@ const FeaturePostsSection = styled.section`
   gap: 5rem;
 
   h2 {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
+    font-family: var(--font-secondary);
   }
 
   .post-list {
@@ -67,24 +72,15 @@ const Home = ({ featuredPostsData }) => {
     <>
       <CustomHead pageTitle="WebDevRef" />
       <BlogIntro>
-        <Image
-          src="/jungle-remote-working.png"
-          width={320}
-          height={200}
-          alt="homepage banner"
-        />
-
-        <Description>
-          <p>
-            Welcome to <span>webdevref</span>
-          </p>
-          <p>A resource reference blog for</p>
-          <p>web developers</p>
-        </Description>
+        <div className="intro">
+          <p>Welcome to WebDevRef</p>
+          <p>My blog space to:</p>
+          <h2 className="foreground">Learn. Share. Grow.</h2>
+        </div>
       </BlogIntro>
 
       <FeaturePostsSection>
-        <h2>featured posts</h2>
+        <h2>featured posts 👇</h2>
 
         <ul className="post-list">
           {sortedPosts.map((post) => {
