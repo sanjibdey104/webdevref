@@ -6,7 +6,7 @@ export default function CustomLink({ children, href }) {
       <a href={href}>{children}</a>
     </Link>
   ) : (
-    <a href={href} target="_blank" rel="noopener noreferrer">
+    <a href={href ? href : "#"} target="_blank" rel="noopener noreferrer">
       {children}
     </a>
   );
