@@ -13,7 +13,6 @@ const AboutSection = styled.section`
   h2 {
     text-align: center;
     margin-bottom: 2rem;
-    font-family: var(--font-secondary);
     color: ${({ theme }) => theme.fgBold};
   }
 

@@ -11,6 +11,7 @@ import CustomHead from "../../components/CustomHead";
 import Seo from "../../components/Seo";
 import Comments from "../../components/Comments";
 import { ScrollHandlerLogic } from "../../components/postPage/ScrollHandler";
+import ChamaleonHeader from "../../components/ChamaleonHeader";
 
 const SinglePostSection = styled.section`
   width: 70%;
@@ -18,7 +19,7 @@ const SinglePostSection = styled.section`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  gap: 3rem;
+  gap: 5rem;
 
   & > * {
     width: 100%;
@@ -35,10 +36,9 @@ const PostHeader = styled.div`
   padding-bottom: 0.5rem;
 
   .title {
-    color: ${({ theme }) => theme.fgBold};
     font-family: var(--font-secondary);
+    font-size: clamp(3rem, 5vw, 5rem);
     margin-bottom: 1rem;
-    font-size: 2.5rem;
   }
 
   section {
@@ -58,24 +58,8 @@ const PostHeader = styled.div`
         display: flex;
         gap: 0.3rem;
         align-items: center;
-        color: ${({ theme }) => theme.accentColor};
       }
     }
-  }
-`;
-
-const PostBanner = styled.div`
-  img {
-    box-shadow: ${({ theme }) => theme.boxShadow};
-    border-radius: 0.5rem;
-    width: 100%;
-  }
-
-  #banner-attribution {
-    margin-top: 0.5rem;
-    text-align: right;
-    font-size: 0.75rem;
-    color: ${({ theme }) => theme.fgLighter};
   }
 `;
 
@@ -140,7 +124,6 @@ const PostTemplate = ({ postData }) => {
 
   const post = postData[0];
   const { title, date, topic, content, updatedAt } = post;
-  const { banner = {} } = post;
 
   const estimatedReadTime = calcEstimatedReadTime(content.concat("", title));
 
@@ -166,7 +149,7 @@ const PostTemplate = ({ postData }) => {
 
       <SinglePostSection>
         <PostHeader>
-          <h1 className="title">{title}</h1>
+          <ChamaleonHeader className="title">{title}</ChamaleonHeader>
           <section>
             <div>
               <p className="created-on">{createdOnDate}</p>
@@ -179,17 +162,6 @@ const PostTemplate = ({ postData }) => {
             <p className="last-updated">last updated: {lastUpdatedOnDate}</p>
           </section>
         </PostHeader>
-
-        {banner ? (
-          <PostBanner>
-            <img src={banner.url} alt="post banner" />
-            <div id="banner-attribution">
-              <a href="canva.com" target="_blank" rel="noreferrer">
-                self-designed on canva.com
-              </a>
-            </div>
-          </PostBanner>
-        ) : null}
 
         <PostBody>
           <ReactMarkdown

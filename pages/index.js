@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
 import styled from "styled-components";
-import { getFeaturedPosts } from "../lib/data";
+import { getPosts } from "../lib/data";
 import PostCard from "../components/PostCard";
 import CustomHead from "../components/CustomHead";
 
@@ -37,7 +37,7 @@ const BlogIntro = styled.section`
   }
 `;
 
-const FeaturePostsSection = styled.section`
+const RecentPostsSection = styled.section`
   width: 90%;
   margin: 0 auto;
 
@@ -60,14 +60,17 @@ const FeaturePostsSection = styled.section`
   }
 `;
 
-const Home = ({ featuredPostsData }) => {
-  const { posts } = featuredPostsData;
+const Home = ({ postsData }) => {
+  const { posts } = postsData;
 
-  let sortedPosts = posts.slice().sort((a, b) => {
-    const dateA = new Date(a.date);
-    const dateB = new Date(b.date);
-    return dateB - dateA;
-  });
+  let recentPosts = posts
+    .slice()
+    .sort((a, b) => {
+      const dateA = new Date(a.date);
+      const dateB = new Date(b.date);
+      return dateB - dateA;
+    })
+    .slice(0, 4);
 
   return (
     <>
@@ -80,16 +83,16 @@ const Home = ({ featuredPostsData }) => {
         </div>
       </BlogIntro>
 
-      <FeaturePostsSection>
-        <h2>featured posts 👇</h2>
+      <RecentPostsSection>
+        <h2>recent posts 👇</h2>
 
         <ul className="post-list">
-          {sortedPosts.map((post) => {
+          {recentPosts.map((post) => {
             const { id } = post;
             return <PostCard key={id} {...post} />;
           })}
         </ul>
-      </FeaturePostsSection>
+      </RecentPostsSection>
 
       <Link href="/posts">
         <a className="all-posts-link">Go to all posts...</a>
@@ -99,11 +102,11 @@ const Home = ({ featuredPostsData }) => {
 };
 
 export const getStaticProps = async () => {
-  const featuredPostsData = await getFeaturedPosts();
+  const postsData = await getPosts();
 
   return {
     props: {
-      featuredPostsData,
+      postsData,
     },
   };
 };

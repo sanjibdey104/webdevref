@@ -10,35 +10,43 @@ const PostCardComponent = styled.li`
   cursor: pointer;
   position: relative;
 
+  /* ----------------------------------------- */
   border-radius: 0.5rem;
   border-top-left-radius: initial;
   padding: 0.5rem;
   border-right: 3px solid ${({ theme }) => theme.accentColor};
   box-shadow: ${({ theme }) => theme.boxShadow};
   background-color: ${({ theme }) => theme.surfaceElevation};
-
   align-self: center;
   justify-self: center;
-
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   gap: 1rem;
 
-  &:hover .card-footer .read-more-link,
-  &:focus .card-footer .read-more-link {
-    transform: translateY(0);
+  /* ---------------------------------------- */
+
+  &:hover {
+    .card-header .title {
+      color: ${({ theme }) => theme.accentColor};
+    }
+    .card-footer .read-more-link {
+      transform: translateY(0);
+    }
+    .topic {
+      transform: translateY(0);
+      opacity: 0;
+    }
   }
 
   .card-header {
     .title {
-      font-size: 1.3rem;
+      font-size: 1.4rem;
       margin-bottom: 0.5rem;
       font-weight: 600;
       font-family: var(--font-secondary);
       color: ${({ theme }) => theme.fgBold};
     }
-
     .date {
       font-size: 0.75rem;
       color: ${({ theme }) => theme.fgLighter};
@@ -56,7 +64,6 @@ const PostCardComponent = styled.li`
     align-items: center;
     justify-content: space-between;
     overflow: hidden;
-
     .read-more-link {
       font-size: 0.85rem;
       font-weight: 500;
@@ -64,12 +71,10 @@ const PostCardComponent = styled.li`
       margin-left: auto;
       transform: translateY(100%);
       transition: transform 200ms ease-in-out;
-
       @media screen and (max-width: 768px) {
         transform: translateY(0);
       }
     }
-
     .read-time {
       display: flex;
       align-items: center;
@@ -88,30 +93,27 @@ const PostCardComponent = styled.li`
     box-shadow: ${({ theme }) => theme.boxShadow};
     border-top-left-radius: 0.5rem;
     border-top-right-radius: 0.5rem;
-
     color: #000;
     font-size: 0.75rem;
     font-weight: 500;
     width: 5rem;
     text-align: center;
+    z-index: -1;
+    transition: all 200ms ease-in-out;
   }
 
   #javascript {
     background-color: var(--js-theme);
   }
-
   #css {
     background-color: var(--css-theme);
   }
-
   #react {
     background-color: var(--react-theme);
   }
-
   #nextjs {
     background-color: var(--nextjs-theme);
   }
-
   #offtech {
     background-color: var(--offtech-theme);
   }

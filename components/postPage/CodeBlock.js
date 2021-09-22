@@ -15,8 +15,6 @@ const CodeBlock = ({ node, inline, className, children, ...props }) => {
       children={String(children).replace(/\n$/, "")}
       customStyle={{
         background: `${theme === "dark" ? "#172135" : "#1f2c47"}`,
-        border: "1px solid",
-        borderColor: `${theme === "dark" ? "#2f436a" : "#364c7c"}`,
       }}
     />
   ) : (

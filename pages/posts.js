@@ -11,17 +11,14 @@ const AllPostsSection = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
-
   h2 {
     color: ${({ theme }) => theme.fgBold};
     font-family: var(--font-secondary);
   }
-
   .post-search {
     margin-bottom: 4rem;
     width: clamp(20rem, 30vw, 25rem);
     position: relative;
-
     .search-bar {
       width: 100%;
       height: 2.3rem;
@@ -29,7 +26,6 @@ const AllPostsSection = styled.section`
       outline: 0;
       border-radius: 5rem;
       padding: 0.2rem 1rem;
-
       font-size: 1.1rem;
       font-weight: 500;
       color: ${({ theme }) => theme.fgLight};
@@ -37,7 +33,6 @@ const AllPostsSection = styled.section`
       border-left: 3px solid ${({ theme }) => theme.accentColor};
       box-shadow: ${({ theme }) => theme.boxShadow};
     }
-
     .search-icon {
       position: absolute;
       right: 0.5rem;
@@ -48,7 +43,6 @@ const AllPostsSection = styled.section`
       font-weight: 600;
     }
   }
-
   .post-list {
     display: flex;
     flex-wrap: wrap;
@@ -56,7 +50,6 @@ const AllPostsSection = styled.section`
     align-items: center;
     gap: 5rem;
   }
-
   @media (max-width: 600px) {
     width: 100%;
     h2 {
