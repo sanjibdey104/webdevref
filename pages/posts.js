@@ -11,10 +11,14 @@ const AllPostsSection = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 3rem;
+
   h2 {
+    font-size: 1.5rem;
+    font-weight: 500;
     color: ${({ theme }) => theme.fgBold};
     font-family: var(--font-secondary);
   }
+
   .post-search {
     margin-bottom: 4rem;
     width: clamp(20rem, 30vw, 25rem);

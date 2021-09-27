@@ -36,7 +36,6 @@ const PostHeader = styled.div`
   padding-bottom: 0.5rem;
 
   .title {
-    font-family: var(--font-secondary);
     font-size: clamp(3rem, 5vw, 5rem);
     margin-bottom: 1rem;
   }
@@ -67,7 +66,8 @@ const PostBody = styled.div`
   display: flex;
   flex-direction: column;
   gap: 1.2rem;
-  line-height: 1.6;
+  line-height: 1.75;
+  font-family: "Inter", sans-serif;
 
   h2,
   h3 {
@@ -86,9 +86,19 @@ const PostBody = styled.div`
 
   pre {
     div {
+      padding: 0.5rem;
       overflow-x: scroll;
       border-radius: 0.5rem;
-      padding: 0.85rem;
+
+      &::-webkit-scrollbar {
+        height: 6px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: ${({ theme }) => theme.scrollbarColor};
+      }
+
       span {
         font-size: 0.9rem;
         font-family: monospace;

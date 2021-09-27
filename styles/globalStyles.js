@@ -4,7 +4,7 @@ export const GlobalStyles = createGlobalStyle`
 
 :root {
     --font-primary: 'Montserrat', sans-serif;
-    --font-secondary: 'Cormorant Garamond', serif;
+    --font-secondary: 'Inter', sans-serif;
     --logo-color: #f7e019;
     --js-theme: #f0db4f;
     --css-theme: #e31b5f;
@@ -31,6 +31,20 @@ body {
     background-color: ${({ theme }) => theme.backgroundColor};
     color: ${({ theme }) => theme.fgLight};
     font-family: var(--font-primary);
+
+    ::-webkit-scrollbar {
+        width: 8px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        border-radius: 1rem;
+        background-color: ${({ theme }) => theme.scrollbarColor};
+        
+        &:hover {
+            background-color: ${({ theme }) => theme.scrollbarHoverColor};
+
+        }
+    }
 }
 
 .container {
@@ -104,8 +118,8 @@ button {
 `;
 
 export const lightTheme = {
-  backgroundColor: "#f5f5f5",
-  surfaceElevation: "#f2f2f2",
+  backgroundColor: "#ffffff",
+  surfaceElevation: "#fbfbfb",
   fgBold: "#212121",
   fgLight: "#424242",
   fgLighter: "#616161",
@@ -114,10 +128,12 @@ export const lightTheme = {
   accentColorLighter: "#4262ff1a",
   boxShadow: "0 0 3px rgba(0,0,0,0.15), 0 0 5px rgba(0,0,0,0.15)",
   mobileNavLink: "#ffffffda",
+  scrollbarColor: "#e6e6e6",
+  scrollbarHoverColor: "#cccccc",
 };
 
 export const darkTheme = {
-  backgroundColor: "#121212",
+  backgroundColor: "#050505",
   surfaceElevation: "#252628",
   fgBold: "#d3cecc",
   fgLight: "#d1d5db",
@@ -127,4 +143,6 @@ export const darkTheme = {
   accentColorLighter: "#ca48601a",
   boxShadow: "0 0 8px rgba(0,0,0,0.75), 0 0 10px rgba(0,0,0,0.15)",
   mobileNavLink: "#151515",
+  scrollbarColor: "#4d4d4d",
+  scrollbarHoverColor: "#808080",
 };

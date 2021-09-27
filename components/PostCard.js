@@ -41,10 +41,8 @@ const PostCardComponent = styled.li`
 
   .card-header {
     .title {
-      font-size: 1.4rem;
+      font-size: 1.1rem;
       margin-bottom: 0.5rem;
-      font-weight: 600;
-      font-family: var(--font-secondary);
       color: ${({ theme }) => theme.fgBold};
     }
     .date {
@@ -54,8 +52,10 @@ const PostCardComponent = styled.li`
   }
 
   .card-body {
+    font-family: var(--font-secondary);
     .excerpt {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
+      color: ${({ theme }) => theme.fgLighter};
     }
   }
 

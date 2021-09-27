@@ -44,10 +44,11 @@ const RecentPostsSection = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 5rem;
+  gap: 6rem;
 
   h2 {
-    font-size: 1.75rem;
+    font-size: 1.5rem;
+    font-weight: 400;
     font-family: var(--font-secondary);
   }
 
